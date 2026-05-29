@@ -3,12 +3,16 @@ project(DivineEarthly_NHAI_Engine)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-# Removed -march=native to allow ARM cross-compilation
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ffast-math")
 
-# Point CMake to the OpenCV Android SDK we will inject via GitHub Actions
+# Register the header files search directory
+include_directories(include)
+
+# Point CMake to the OpenCV Android SDK we inject via GitHub Actions
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
 find_package(OpenCV REQUIRED)
+
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 # Combine the core logic and JNI bridge into a single shared library for React Native
 add_library(vedic_core SHARED
