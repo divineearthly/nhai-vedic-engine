@@ -1,0 +1,6 @@
+node_modules/
+.gradle/
+.gradle_local_home/
+android/app/build/
+android/.gradle/
+*.apk
