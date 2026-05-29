@@ -5,16 +5,15 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ffast-math")
 
-# Register the header files search directory
+# This maps your local folders so the compiler can read all your Vedic & Vision headers
 include_directories(include)
 
-# Point CMake to the OpenCV Android SDK we inject via GitHub Actions
+# Map the cloud-downloaded OpenCV framework
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
 find_package(OpenCV REQUIRED)
-
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# Combine the core logic and JNI bridge into a single shared library for React Native
+# Compile your complete custom stack and JNI bridge into a single shared payload
 add_library(vedic_core SHARED
     src/anurupyena_quant.cpp
     src/urdhva_multiplication.cpp
@@ -24,6 +23,6 @@ add_library(vedic_core SHARED
     src/jni_bridge.cpp
 )
 
-# Link OpenCV and the standard Android logging library
+# Bind the system libraries and vision tools
 find_library(log-lib log)
 target_link_libraries(vedic_core ${OpenCV_LIBS} ${log-lib})
