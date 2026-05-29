@@ -28,7 +28,7 @@ jobs:
         cd NhaiApp
         npm install
 
-    - name: Inject OpenCV Android SDK
+    - name: Inject & Optimize OpenCV Android SDK
       run: |
         cd NhaiApp/android/app/src/main/cpp
         echo "Downloading OpenCV for Android..."
@@ -36,6 +36,15 @@ jobs:
         unzip -q opencv-4.9.0-android-sdk.zip
         mv OpenCV-android-sdk opencv
         rm opencv-4.9.0-android-sdk.zip
+        
+        # Size Optimization: Purge all architectures except arm64-v8a to reduce APK bloat
+        echo "Shredding unneeded architecture binaries to shrink APK size..."
+        rm -rf opencv/sdk/native/libs/armeabi-v7a
+        rm -rf opencv/sdk/native/libs/x86
+        rm -rf opencv/sdk/native/libs/x86_64
+        rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
+        rm -rf opencv/sdk/native/staticlibs/x86
+        rm -rf opencv/sdk/native/staticlibs/x86_64
 
     - name: Accept Android SDK Licenses & Setup Environment
       run: |
@@ -45,7 +54,8 @@ jobs:
       run: |
         cd NhaiApp/android
         chmod +x gradlew
-        ./gradlew assembleDebug --no-daemon
+        # Build strictly for modern arm64 targets
+        ./gradlew assembleDebug -PreactNativeArchitectures=arm64-v8a --no-daemon
 
     - name: Upload Finished App Artifact
       uses: actions/upload-artifact@v4
