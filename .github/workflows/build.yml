@@ -28,10 +28,17 @@ jobs:
         cd NhaiApp
         npm install
 
+    - name: Inject OpenCV Android SDK
+      run: |
+        cd NhaiApp/android/app/src/main/cpp
+        echo "Downloading OpenCV for Android..."
+        wget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zip
+        unzip -q opencv-4.9.0-android-sdk.zip
+        mv OpenCV-android-sdk opencv
+        rm opencv-4.9.0-android-sdk.zip
+
     - name: Accept Android SDK Licenses & Setup Environment
       run: |
-        # GitHub enterprise runners already have the full Android SDK installed.
-        # We just need to ensure the project points directly to it.
         echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
 
     - name: Compile C++ Kernels & Package Android APK
