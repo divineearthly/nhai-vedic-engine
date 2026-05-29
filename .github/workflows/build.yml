@@ -1,0 +1,47 @@
+name: Build Divine Earthly Sovereign AI APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_android:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code Base
+      uses: actions/checkout@v4
+
+    - name: Set up Java 17 (Stable NDK Standard)
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'zulu'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd NhaiApp
+        npm install
+
+    - name: Accept Android SDK Licenses & Setup Environment
+      run: |
+        # GitHub enterprise runners already have the full Android SDK installed.
+        # We just need to ensure the project points directly to it.
+        echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
+
+    - name: Compile C++ Kernels & Package Android APK
+      run: |
+        cd NhaiApp/android
+        chmod +x gradlew
+        ./gradlew assembleDebug --no-daemon
+
+    - name: Upload Finished App Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Sovereign-AI-Offline-Engine
+        path: NhaiApp/android/app/build/outputs/apk/debug/app-debug.apk
