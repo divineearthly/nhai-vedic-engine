@@ -8,41 +8,35 @@ export default function App() {
   const device = useCameraDevice('front');
   const camera = useRef(null);
   
-  // The V4 Hook automatically tracks background/foreground permission states
   const { hasPermission, requestPermission } = useCameraPermission();
   const [status, setStatus] = useState('Initializing Sovereign AI...');
 
   useEffect(() => {
-    if (!hasPermission) {
-      requestPermission();
-    }
-    
-    // Check C++ Engine Status
-    (async () => {
-      try {
-        const engineStatus = await VedicEngine.checkStatus();
-        setStatus(engineStatus);
-      } catch (e) {
-        setStatus("Engine Offline");
-      }
-    })();
+    if (!hasPermission) requestPermission();
   }, [hasPermission, requestPermission]);
 
   const handleAuthentication = async () => {
-    setStatus("Scanning Face & Checking Liveness...");
-    setTimeout(async () => {
-      try {
-        const result = await VedicEngine.authenticateFace("frame1", "frame2");
-        const parsed = JSON.parse(result);
-        if (parsed.match && parsed.liveness) {
-           setStatus("ACCESS GRANTED: Verified by Vedic Kernel.");
-        } else {
-           setStatus("ACCESS DENIED: Spoof Detected.");
-        }
-      } catch (e) {
-        setStatus("Error: Native Bridge Authentication Failed");
+    if (camera.current == null) return;
+    
+    setStatus("Capturing Frame...");
+    try {
+      // 1. Instantly capture the frame to the local device cache
+      const photo = await camera.current.takePhoto({ qualityPrioritization: 'speed' });
+      setStatus("Passing File Path to C++ Kernel...");
+      
+      // 2. Pass the absolute file path directly to the native bridge
+      const result = await VedicEngine.authenticateFace(photo.path, "none");
+      const parsed = JSON.parse(result);
+      
+      // 3. Display the results returned by OpenCV
+      if (parsed.status === "success") {
+         setStatus(`ACCESS GRANTED: Verified by Vedic Kernel.\nOpenCV Read Resolution: ${parsed.width}x${parsed.height}`);
+      } else {
+         setStatus(`ACCESS DENIED: ${parsed.error}`);
       }
-    }, 500); 
+    } catch (e) {
+      setStatus("Error: Vision Capture Failed");
+    }
   };
 
   if (!hasPermission) return <View style={styles.container}><Text style={styles.statusText}>Requesting Camera Hardware Access...</Text></View>;
