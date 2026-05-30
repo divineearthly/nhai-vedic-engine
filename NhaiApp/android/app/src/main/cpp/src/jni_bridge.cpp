@@ -8,7 +8,7 @@
 using namespace DivineEarthly::SovereignIntelligence;
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_divineearthly_nhai_VedicEngineModule_authenticateFaceNative(JNIEnv* env, jobject /* this */, jbyteArray frame1, jbyteArray frame2) {
+Java_com_nhaiapp_VedicEngineModule_authenticateFaceNative(JNIEnv* env, jobject /* this */, jbyteArray frame1, jbyteArray frame2) {
     
     // In a real Android environment, we would convert the Java byte arrays 
     // (YUV camera frames) into our C++ vectors here.
@@ -20,7 +20,7 @@ Java_com_divineearthly_nhai_VedicEngineModule_authenticateFaceNative(JNIEnv* env
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_divineearthly_nhai_VedicEngineModule_getSystemStatus(JNIEnv* env, jobject /* this */) {
+Java_com_nhaiapp_VedicEngineModule_getSystemStatus(JNIEnv* env, jobject /* this */) {
     std::string status = "Divine Earthly Sovereign AI: INT4 Edge Runtime Active.";
     return env->NewStringUTF(status.c_str());
 }

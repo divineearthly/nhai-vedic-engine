@@ -1,19 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, NativeModules, TouchableOpacity } from 'react-native';
-import { Camera, useCameraDevices } from 'react-native-vision-camera';
+import { Camera, useCameraDevice } from 'react-native-vision-camera';
 
 const { VedicEngine } = NativeModules;
 
 export default function App() {
-  const devices = useCameraDevices();
-  const device = devices.find((d) => d.position === 'front');
+  const device = useCameraDevice('front');
   const camera = useRef(null);
-  
+
   const [status, setStatus] = useState('Initializing Sovereign AI...');
+  const [hasPermission, setHasPermission] = useState(false);
 
   useEffect(() => {
     (async () => {
-      await Camera.requestCameraPermission();
+      // Wait for explicit permission before allowing the camera to render
+      const permission = await Camera.requestCameraPermission();
+      setHasPermission(permission === 'granted');
+      
       try {
         const engineStatus = await VedicEngine.checkStatus();
         setStatus(engineStatus);
@@ -35,12 +38,13 @@ export default function App() {
            setStatus("ACCESS DENIED: Spoof Detected.");
         }
       } catch (e) {
-        setStatus("Error: Authentication Failed");
+        setStatus("Error: Native Bridge Authentication Failed");
       }
-    }, 500); // Simulated delay for camera flash
+    }, 500); 
   };
 
-  if (device == null) return <View style={styles.container}><Text style={styles.statusText}>Loading Camera...</Text></View>;
+  if (!hasPermission) return <View style={styles.container}><Text style={styles.statusText}>Requesting Camera Hardware Access...</Text></View>;
+  if (device == null) return <View style={styles.container}><Text style={styles.statusText}>Loading Lens...</Text></View>;
 
   return (
     <View style={styles.container}>
