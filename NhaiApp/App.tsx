@@ -19,37 +19,32 @@ export default function App() {
     
     setStatus("Snapping Instant Frame...");
     try {
-      // 1. Capture the frame straight into RAM (HybridObject)
       const photo = await camera.current.takeSnapshot({ quality: 85 });
+      setStatus("Running OpenCV Haar Cascade...");
       
-      setStatus("Extracting Memory Object to Physical Cache...");
-      
-      // 2. Ask Java where the safe cache folder is located
       const cacheDir = await VedicEngine.getCachePath();
       const savePath = cacheDir + "/snapshot.jpg";
       
-      // 3. Command the NitroImage HybridObject to physically save itself to the drive
       if (typeof photo.saveToFileAsync === 'function') {
           await photo.saveToFileAsync(savePath, 'jpg', 85);
       } else if (typeof photo.saveToFile === 'function') {
           await photo.saveToFile(savePath, 'jpg', 85);
       } else {
-          throw new Error("Unable to save NitroImage. Object missing save command.");
+          throw new Error("Unable to save NitroImage object.");
       }
 
-      setStatus("Running OpenCV Haar Cascade...");
       const cleanPath = savePath.startsWith('file://') ? savePath.replace('file://', '') : savePath;
-
-      // 4. Pass the physical file path down to the C++ Engine
       const result = await VedicEngine.authenticateFace(cleanPath, "none");
       const parsed = JSON.parse(result);
       
       if (parsed.status === "success") {
-         setStatus(`FACE DETECTED!\nBounding Box: [X:${parsed.face_x}, Y:${parsed.face_y}]\nPassing to Vedic Kernel...`);
+         setStatus(`FACE DETECTED! [X:${parsed.face_x}, Y:${parsed.face_y}]\n\nACCESS GRANTED\nKernel Match: ${parsed.confidence}%\nLiveness: ${parsed.liveness}`);
+      } else if (parsed.status === "spoof") {
+         setStatus(`ACCESS DENIED!\n${parsed.error}`);
       } else {
-         setStatus(`OPENCV FAILED:\n${parsed.error}`);
+         setStatus(OPENCV FAILED:\n${parsed.error}`);
       }
-    } catch (e: any) {
+    } catch (e) {
       setStatus(`Crash Report:\n${e.message || JSON.stringify(e)}`);
     }
   };
