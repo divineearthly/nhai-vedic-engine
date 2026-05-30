@@ -18,7 +18,6 @@ public class VedicEngineModule extends ReactContextBaseJavaModule {
     private native String getSystemStatus();
     private native String authenticateFaceNative(String frame1, String frame2, String cascadePath);
 
-    // Extracts the XML model from the APK and saves it to the local phone cache for C++ to read
     private String getCascadePath() {
         File cascadeFile = new File(getReactApplicationContext().getCacheDir(), "haarcascade_frontalface_default.xml");
         if (!cascadeFile.exists()) {
@@ -36,6 +35,14 @@ public class VedicEngineModule extends ReactContextBaseJavaModule {
     public void checkStatus(Promise promise) {
         try { promise.resolve(getSystemStatus()); }
         catch (Exception e) { promise.reject("ERR_STATUS", e); }
+    }
+
+    // NEW: Giving JavaScript the exact path to write the HybridObject file
+    @ReactMethod
+    public void getCachePath(Promise promise) {
+        try {
+            promise.resolve(getReactApplicationContext().getCacheDir().getAbsolutePath());
+        } catch (Exception e) { promise.reject("ERR_CACHE", e); }
     }
 
     @ReactMethod

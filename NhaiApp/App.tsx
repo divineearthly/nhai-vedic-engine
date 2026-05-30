@@ -19,18 +19,28 @@ export default function App() {
     
     setStatus("Snapping Instant Frame...");
     try {
+      // 1. Capture the frame straight into RAM (HybridObject)
       const photo = await camera.current.takeSnapshot({ quality: 85 });
       
-      // FIX: Hunt for the exact property Android used to store the file location
-      const rawPath = photo.path || photo.uri || photo.localUri;
+      setStatus("Extracting Memory Object to Physical Cache...");
       
-      if (!rawPath) {
-         throw new Error("Missing Path! Android returned: " + JSON.stringify(photo));
+      // 2. Ask Java where the safe cache folder is located
+      const cacheDir = await VedicEngine.getCachePath();
+      const savePath = cacheDir + "/snapshot.jpg";
+      
+      // 3. Command the NitroImage HybridObject to physically save itself to the drive
+      if (typeof photo.saveToFileAsync === 'function') {
+          await photo.saveToFileAsync(savePath, 'jpg', 85);
+      } else if (typeof photo.saveToFile === 'function') {
+          await photo.saveToFile(savePath, 'jpg', 85);
+      } else {
+          throw new Error("Unable to save NitroImage. Object missing save command.");
       }
 
       setStatus("Running OpenCV Haar Cascade...");
-      const cleanPath = rawPath.startsWith('file://') ? rawPath.replace('file://', '') : rawPath;
+      const cleanPath = savePath.startsWith('file://') ? savePath.replace('file://', '') : savePath;
 
+      // 4. Pass the physical file path down to the C++ Engine
       const result = await VedicEngine.authenticateFace(cleanPath, "none");
       const parsed = JSON.parse(result);
       
@@ -40,7 +50,7 @@ export default function App() {
          setStatus(`OPENCV FAILED:\n${parsed.error}`);
       }
     } catch (e: any) {
-      setStatus(`Crash Report:\n${e.message}`);
+      setStatus(`Crash Report:\n${e.message || JSON.stringify(e)}`);
     }
   };
 
