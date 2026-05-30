@@ -19,11 +19,13 @@ export default function App() {
     
     setStatus("Snapping Instant Frame...");
     try {
-      // FIX: Swapped takePhoto() for takeSnapshot() to match Android hardware commands!
       const photo = await camera.current.takeSnapshot({ quality: 85 });
       setStatus("Running OpenCV Haar Cascade...");
       
-      const result = await VedicEngine.authenticateFace(photo.path, "none");
+      // FIX: Strip out "file://" prefix from Android paths so OpenCV can read it safely
+      const cleanPath = photo.path.startsWith('file://') ? photo.path.replace('file://', '') : photo.path;
+
+      const result = await VedicEngine.authenticateFace(cleanPath, "none");
       const parsed = JSON.parse(result);
       
       if (parsed.status === "success") {
