@@ -30,8 +30,9 @@ export default function App() {
       } else {
          setStatus(`AUTHENTICATION FAILED:\n${parsed.error}`);
       }
-    } catch (e) {
-      setStatus("Error: Vision Capture Failed");
+    } catch (e: any) {
+      // THIS IS THE FIX: Print the exact system error instead of generic text
+      setStatus(`System Crash:\n${e.message || JSON.stringify(e)}`);
     }
   };
 
