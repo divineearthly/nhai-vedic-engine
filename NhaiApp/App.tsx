@@ -42,8 +42,9 @@ export default function App() {
       } else if (parsed.status === "spoof") {
          setStatus(`ACCESS DENIED!\n${parsed.error}`);
       } else {
-         setStatus(OPENCV FAILED:\n${parsed.error}`);
+         setStatus(`OPENCV FAILED:\n${parsed.error}`);
       }
+    return;
     } catch (e) {
       setStatus(`Crash Report:\n${e.message || JSON.stringify(e)}`);
     }
