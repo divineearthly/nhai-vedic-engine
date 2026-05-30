@@ -7,7 +7,6 @@ const { VedicEngine } = NativeModules;
 export default function App() {
   const device = useCameraDevice('front');
   const camera = useRef(null);
-  
   const { hasPermission, requestPermission } = useCameraPermission();
   const [status, setStatus] = useState('Initializing Sovereign AI...');
 
@@ -20,19 +19,16 @@ export default function App() {
     
     setStatus("Capturing Frame...");
     try {
-      // 1. Instantly capture the frame to the local device cache
       const photo = await camera.current.takePhoto({ qualityPrioritization: 'speed' });
-      setStatus("Passing File Path to C++ Kernel...");
+      setStatus("Running OpenCV Haar Cascade...");
       
-      // 2. Pass the absolute file path directly to the native bridge
       const result = await VedicEngine.authenticateFace(photo.path, "none");
       const parsed = JSON.parse(result);
       
-      // 3. Display the results returned by OpenCV
       if (parsed.status === "success") {
-         setStatus(`ACCESS GRANTED: Verified by Vedic Kernel.\nOpenCV Read Resolution: ${parsed.width}x${parsed.height}`);
+         setStatus(`FACE DETECTED!\nBounding Box: [X:${parsed.face_x}, Y:${parsed.face_y}]\nPassing to Vedic Kernel...`);
       } else {
-         setStatus(`ACCESS DENIED: ${parsed.error}`);
+         setStatus(`AUTHENTICATION FAILED:\n${parsed.error}`);
       }
     } catch (e) {
       setStatus("Error: Vision Capture Failed");
