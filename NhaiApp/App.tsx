@@ -20,10 +20,16 @@ export default function App() {
     setStatus("Snapping Instant Frame...");
     try {
       const photo = await camera.current.takeSnapshot({ quality: 85 });
-      setStatus("Running OpenCV Haar Cascade...");
       
-      // FIX: Strip out "file://" prefix from Android paths so OpenCV can read it safely
-      const cleanPath = photo.path.startsWith('file://') ? photo.path.replace('file://', '') : photo.path;
+      // FIX: Hunt for the exact property Android used to store the file location
+      const rawPath = photo.path || photo.uri || photo.localUri;
+      
+      if (!rawPath) {
+         throw new Error("Missing Path! Android returned: " + JSON.stringify(photo));
+      }
+
+      setStatus("Running OpenCV Haar Cascade...");
+      const cleanPath = rawPath.startsWith('file://') ? rawPath.replace('file://', '') : rawPath;
 
       const result = await VedicEngine.authenticateFace(cleanPath, "none");
       const parsed = JSON.parse(result);
