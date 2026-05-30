@@ -1,22 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, NativeModules, TouchableOpacity } from 'react-native';
-import { Camera, useCameraDevice } from 'react-native-vision-camera';
+import { Camera, useCameraDevice, useCameraPermission } from 'react-native-vision-camera';
 
 const { VedicEngine } = NativeModules;
 
 export default function App() {
   const device = useCameraDevice('front');
   const camera = useRef(null);
-
+  
+  // The V4 Hook automatically tracks background/foreground permission states
+  const { hasPermission, requestPermission } = useCameraPermission();
   const [status, setStatus] = useState('Initializing Sovereign AI...');
-  const [hasPermission, setHasPermission] = useState(false);
 
   useEffect(() => {
+    if (!hasPermission) {
+      requestPermission();
+    }
+    
+    // Check C++ Engine Status
     (async () => {
-      // Wait for explicit permission before allowing the camera to render
-      const permission = await Camera.requestCameraPermission();
-      setHasPermission(permission === 'granted');
-      
       try {
         const engineStatus = await VedicEngine.checkStatus();
         setStatus(engineStatus);
@@ -24,7 +26,7 @@ export default function App() {
         setStatus("Engine Offline");
       }
     })();
-  }, []);
+  }, [hasPermission, requestPermission]);
 
   const handleAuthentication = async () => {
     setStatus("Scanning Face & Checking Liveness...");
