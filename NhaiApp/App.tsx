@@ -15,35 +15,23 @@ export default function App() {
   }, [hasPermission, requestPermission]);
 
   const handleAuthentication = async () => {
+    if (camera.current == null) return;
+    
+    setStatus("Snapping Instant Frame...");
     try {
-      setStatus("Diag 1: Checking Camera Ref...");
-      if (!camera.current) throw new Error("Camera hardware reference is null.");
-      if (typeof camera.current.takePhoto !== 'function') {
-         throw new Error("takePhoto is missing. Available commands: " + Object.keys(camera.current).join(', '));
-      }
-
-      setStatus("Diag 2: Snapping Photo...");
-      const photo = await camera.current.takePhoto();
-
-      setStatus("Diag 3: Checking C++ Bridge...");
-      if (!VedicEngine) throw new Error("VedicEngine module is completely missing from NativeModules.");
-      if (typeof VedicEngine.authenticateFace !== 'function') {
-         throw new Error("authenticateFace is missing. Available commands: " + Object.keys(VedicEngine).join(', '));
-      }
-
-      setStatus("Diag 4: Passing Frame to OpenCV...");
+      // FIX: Swapped takePhoto() for takeSnapshot() to match Android hardware commands!
+      const photo = await camera.current.takeSnapshot({ quality: 85 });
+      setStatus("Running OpenCV Haar Cascade...");
+      
       const result = await VedicEngine.authenticateFace(photo.path, "none");
-
-      setStatus("Diag 5: Parsing Kernel Response...");
       const parsed = JSON.parse(result);
-
+      
       if (parsed.status === "success") {
          setStatus(`FACE DETECTED!\nBounding Box: [X:${parsed.face_x}, Y:${parsed.face_y}]\nPassing to Vedic Kernel...`);
       } else {
          setStatus(`OPENCV FAILED:\n${parsed.error}`);
       }
     } catch (e: any) {
-      // This will catch the exact failure and print it to your screen
       setStatus(`Crash Report:\n${e.message}`);
     }
   };
