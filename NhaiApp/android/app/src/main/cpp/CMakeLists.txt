@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.10.2)
 project(vedic_jni_bridge)
 
-# Static Linking: Only pull in what we use
+set(OpenCV_STATIC ON)
+set(BUILD_SHARED_LIBS OFF)
 set(OpenCV_STATIC ON)
 find_package(OpenCV REQUIRED COMPONENTS core imgproc objdetect)
 
