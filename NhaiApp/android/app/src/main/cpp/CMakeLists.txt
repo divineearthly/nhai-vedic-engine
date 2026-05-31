@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.10.2)
 project(vedic_jni_bridge)
 
-# Stable Dynamic OpenCV Linking
+# Explicitly tell the GitHub Actions Cloud Runner where your bundled OpenCV lives
+set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
 find_package(OpenCV REQUIRED)
 
-# Explicit, Absolute Paths for Ninja
+# Explicit, Absolute Paths for the Ninja Build System
 add_library(vedic_jni_bridge SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/src/jni_bridge.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/face_vision.cpp
@@ -14,9 +15,9 @@ add_library(vedic_jni_bridge SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/src/urdhva_multiplication.cpp
 )
 
-# Explicitly link OpenCV and Android Logging
+# Wire up include directories and native libraries
 target_include_directories(vedic_jni_bridge PRIVATE ${OpenCV_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(vedic_jni_bridge ${OpenCV_LIBS} log)
 
-# Extreme size optimization (-Os)
+# High-performance footprint optimization flags
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Os")
