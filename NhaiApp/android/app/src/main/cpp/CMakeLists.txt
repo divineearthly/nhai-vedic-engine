@@ -32,3 +32,9 @@ add_library(vedic_jni_bridge SHARED
 # Link OpenCV and the system logging tools
 find_library(log-lib log)
 target_link_libraries(vedic_jni_bridge ${OpenCV_LIBS} ${log-lib})
+
+# --- SOVEREIGN EDGE COMPRESSION PATCH ---
+# Force extreme size optimization (-Os) and strip debug symbols (-s)
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_FLAGS_RELEASE "-Os -s -fno-exceptions -fno-rtti")
+set(CMAKE_C_FLAGS_RELEASE "-Os -s")

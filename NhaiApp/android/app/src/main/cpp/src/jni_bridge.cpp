@@ -1,93 +1,80 @@
 #include <jni.h>
 #include <string>
-#include <vector>
-#include <exception>
 #include <opencv2/opencv.hpp>
-
-// Your Sovereign AI mathematical headers
-#include "face_vision.h"
-#include "nikhilam_distance.h"
-#include "liveness_check.h"
-
-using namespace DivineEarthly::SovereignIntelligence;
-
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_nhaiapp_VedicEngineModule_getSystemStatus(JNIEnv* env, jobject /* this */) {
-    std::string status = "Divine Earthly Sovereign AI: Vedic Core Online.";
-    return env->NewStringUTF(status.c_str());
-}
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_nhaiapp_VedicEngineModule_authenticateFaceNative(JNIEnv* env, jobject /* this */, jstring frame1, jstring frame2, jstring cascadePath) {
     std::string response;
-    const char *path1 = nullptr;
-    const char *cascade_path = nullptr;
+    
+    // 1. Capture Both Frame Paths
+    const char *path1 = env->GetStringUTFChars(frame1, nullptr);
+    const char *path2 = env->GetStringUTFChars(frame2, nullptr);
+    const char *cascade_path = env->GetStringUTFChars(cascadePath, nullptr);
 
     try {
-        path1 = env->GetStringUTFChars(frame1, nullptr);
-        cascade_path = env->GetStringUTFChars(cascadePath, nullptr);
+        // 2. Read Both Matrices from Hardware
+        cv::Mat img1 = cv::imread(path1, cv::IMREAD_COLOR);
+        cv::Mat img2 = cv::imread(path2, cv::IMREAD_COLOR);
 
-        cv::Mat img = cv::imread(path1, cv::IMREAD_COLOR);
-
-        if (img.empty()) {
-            response = "{\"status\": \"error\", \"error\": \"OpenCV failed to read the image file.\"}";
+        if (img1.empty() || img2.empty()) {
+            response = "{\"status\": \"error\", \"error\": \"MATRIX_READ_FAULT\"}";
         } else {
-            cv::Mat gray;
-            cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
+            cv::Mat gray1, gray2;
+            cv::cvtColor(img1, gray1, cv::COLOR_BGR2GRAY);
+            cv::cvtColor(img2, gray2, cv::COLOR_BGR2GRAY);
 
-            // Memory Protection Scaling
-            float scale = 400.0f / img.cols;
+            // 3. Memory Protection Scaling (Sub-20MB Optimization)
+            float scale = 400.0f / img1.cols;
             if (scale < 1.0f) {
-                cv::resize(gray, gray, cv::Size(), scale, scale);
+                cv::resize(gray1, gray1, cv::Size(), scale, scale);
+                cv::resize(gray2, gray2, cv::Size(), scale, scale);
             }
 
-            // 🌟 SOVEREIGN LIGHTING ARMOR (Histogram Equalization) 🌟
-            // This mathematically balances extreme shadows and backlighting before detection
-            cv::equalizeHist(gray, gray);
+            // 4. Photonic Lighting Armor
+            cv::equalizeHist(gray1, gray1);
+            cv::equalizeHist(gray2, gray2);
 
             cv::CascadeClassifier face_cascade;
             if (!face_cascade.load(cascade_path)) {
-                response = "{\"status\": \"error\", \"error\": \"Failed to load Haar Cascade XML.\"}";
+                response = "{\"status\": \"error\", \"error\": \"CASCADE_FAULT\"}";
             } else {
                 std::vector<cv::Rect> faces;
-                face_cascade.detectMultiScale(gray, faces, 1.1, 4);
+                face_cascade.detectMultiScale(gray1, faces, 1.1, 4, 0, cv::Size(30, 30));
 
                 if (faces.empty()) {
-                    response = "{\"status\": \"error\", \"error\": \"No face detected in the compressed frame.\"}";
+                    response = "{\"status\": \"error\", \"error\": \"NO_FACE_DETECTED\"}";
                 } else {
-                    // Face successfully isolated!
-                    cv::Rect faceRect = faces[0];
-                    cv::Mat faceROI = gray(faceRect);
+                    cv::Rect faceROI = faces[0];
 
-                    // 1. Execute Vedic Dharana Liveness Verification
-                    bool isLive = true; 
-                    try {
-                        isLive = (faceROI.rows > 0); 
-                    } catch (...) { isLive = true; }
+                    // Secure boundaries to prevent memory overflow
+                    faceROI &= cv::Rect(0, 0, gray1.cols, gray1.rows);
+                    faceROI &= cv::Rect(0, 0, gray2.cols, gray2.rows);
 
-                    if (!isLive) {
-                        response = "{\"status\": \"spoof\", \"error\": \"Vedic Dharana: Digital Spoof Detected.\"}";
+                    cv::Mat roi1 = gray1(faceROI);
+                    cv::Mat roi2 = gray2(faceROI);
+
+                    // 5. ACTIVE LIVENESS DETECTION (Temporal Variance Matrix)
+                    cv::Mat diff;
+                    cv::absdiff(roi1, roi2, diff); // Compare T1 and T2
+                    cv::Scalar meanDiff = cv::mean(diff);
+
+                    // If pixel variance is greater than 2.5, the user moved (blinked/turned head)
+                    if (meanDiff[0] > 2.5) {
+                        response = "{\"status\": \"success\", \"face_x\": " + std::to_string(faceROI.x) + ", \"face_y\": " + std::to_string(faceROI.y) + ", \"liveness\": \"PASSED\"}";
                     } else {
-                        // 2. Execute Nikhilam Distance Matrix Optimization
-                        int matchScore = 94; // Baseline calibration matrix simulation
-                        
-                        response = "{\"status\": \"success\", \"face_x\": " + std::to_string(faceRect.x) + 
-                                   ", \"face_y\": " + std::to_string(faceRect.y) + 
-                                   ", \"liveness\": \"PASSED\", \"confidence\": " + std::to_string(matchScore) + "}";
+                        response = "{\"status\": \"error\", \"error\": \"STATIC_SPOOF_DETECTED\"}";
                     }
                 }
             }
         }
-    } catch (const cv::Exception& e) {
-        response = "{\"status\": \"error\", \"error\": \"OpenCV Math Exception: " + std::string(e.what()) + "\"}";
     } catch (const std::exception& e) {
-        response = "{\"status\": \"error\", \"error\": \"C++ Core Exception: " + std::string(e.what()) + "\"}";
-    } catch (...) {
-        response = "{\"status\": \"error\", \"error\": \"Unknown Native Execution Failure\"}";
+        response = std::string("{\"status\": \"error\", \"error\": \"") + e.what() + "\"}";
     }
 
-    if (path1) env->ReleaseStringUTFChars(frame1, path1);
-    if (cascade_path) env->ReleaseStringUTFChars(cascadePath, cascade_path);
+    // Release JNI Memory
+    env->ReleaseStringUTFChars(frame1, path1);
+    env->ReleaseStringUTFChars(frame2, path2);
+    env->ReleaseStringUTFChars(cascadePath, cascade_path);
 
     return env->NewStringUTF(response.c_str());
 }
