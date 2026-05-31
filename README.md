@@ -102,3 +102,16 @@ See [LICENSE](LICENSE) and [DHARMA.md](DHARMA.md) for the full terms.
 - Translate into your language
 - Report what helps and what doesn't
 - That is the only payment we ask
+## 🍏 iOS Cross-Platform Compatibility
+The Sovereign Vision Engine is built on a unified React Native architecture, making it inherently cross-platform. To compile the engine for iOS devices (iOS 12+):
+1. Ensure Xcode and CocoaPods are installed.
+2. Navigate to the iOS directory: `cd nhai-vedic-engine/NhaiApp/ios`
+3. Install the C++ JNI bridge bindings: `pod install`
+4. Open `NhaiApp.xcworkspace` in Xcode and execute the build to deploy the sub-20MB edge model to Apple silicon.
+
+## 🍏 iOS Cross-Platform Compatibility
+The Sovereign Vision Engine is built on a unified React Native architecture, making it inherently cross-platform. To compile the engine for iOS devices (iOS 12+):
+1. Ensure Xcode and CocoaPods are installed.
+2. Navigate to the iOS directory: `cd nhai-vedic-engine/NhaiApp/ios`
+3. Install the C++ JNI bridge bindings: `pod install`
+4. Open `NhaiApp.xcworkspace` in Xcode and execute the build to deploy the sub-20MB edge model to Apple silicon.
