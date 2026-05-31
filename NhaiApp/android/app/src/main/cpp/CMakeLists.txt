@@ -1,40 +1,14 @@
-cmake_minimum_required(VERSION 3.22.1)
+cmake_minimum_required(VERSION 3.10.2)
+project(vedic_jni_bridge)
 
-# RESTORE REACT NATIVE CORE: 
-# Setting the project to 'appmodules' and including the script below 
-# forces CMake to compile React Native's native TurboModules (like PlatformConstants)
-project(appmodules)
-include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
+# Static Linking: Only pull in what we use
+set(OpenCV_STATIC ON)
+find_package(OpenCV REQUIRED COMPONENTS core imgproc objdetect)
 
-# --- VEDIC SOVEREIGN ENGINE ---
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ffast-math")
+add_library(vedic_jni_bridge SHARED src/jni_bridge.cpp src/face_vision.cpp src/liveness_check.cpp)
 
-# Map the local header directories
-include_directories(include)
+target_include_directories(vedic_jni_bridge PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(vedic_jni_bridge ${OpenCV_LIBS} log)
 
-# Map the cloud-downloaded OpenCV framework
-set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
-find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
-
-# Compile your custom JNI bridge as a separate shared library
-add_library(vedic_jni_bridge SHARED
-    src/anurupyena_quant.cpp
-    src/urdhva_multiplication.cpp
-    src/nikhilam_distance.cpp
-    src/face_vision.cpp
-    src/liveness_check.cpp
-    src/jni_bridge.cpp
-)
-
-# Link OpenCV and the system logging tools
-find_library(log-lib log)
-target_link_libraries(vedic_jni_bridge ${OpenCV_LIBS} ${log-lib})
-
-# --- SOVEREIGN EDGE COMPRESSION PATCH ---
-# Force extreme size optimization (-Os) and strip debug symbols (-s)
-set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_FLAGS_RELEASE "-Os ")
-set(CMAKE_C_FLAGS_RELEASE "-Os -s")
+# Compiler optimization
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Os -s")

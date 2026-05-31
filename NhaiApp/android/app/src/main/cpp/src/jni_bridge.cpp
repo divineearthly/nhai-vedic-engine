@@ -59,7 +59,7 @@ Java_com_nhaiapp_VedicEngineModule_authenticateFaceNative(JNIEnv* env, jobject /
                     cv::Scalar meanDiff = cv::mean(diff);
 
                     // If pixel variance is greater than 2.5, the user moved (blinked/turned head)
-                    if (meanDiff[0] > 2.5) {
+                    if (meanDiff[0] > 5.0 && meanDiff[0] < 60.0) {
                         response = "{\"status\": \"success\", \"face_x\": " + std::to_string(faceROI.x) + ", \"face_y\": " + std::to_string(faceROI.y) + ", \"liveness\": \"PASSED\"}";
                     } else {
                         response = "{\"status\": \"error\", \"error\": \"STATIC_SPOOF_DETECTED\"}";
