@@ -36,5 +36,5 @@ target_link_libraries(vedic_jni_bridge ${OpenCV_LIBS} ${log-lib})
 # --- SOVEREIGN EDGE COMPRESSION PATCH ---
 # Force extreme size optimization (-Os) and strip debug symbols (-s)
 set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_FLAGS_RELEASE "-Os -s -fno-exceptions -fno-rtti")
+set(CMAKE_CXX_FLAGS_RELEASE "-Os -s -fno-rtti")
 set(CMAKE_C_FLAGS_RELEASE "-Os -s")
