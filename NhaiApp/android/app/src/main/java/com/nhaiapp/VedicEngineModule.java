@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.FileOutputStream;
 
 public class VedicEngineModule extends ReactContextBaseJavaModule {
-    static { System.loadLibrary("vedic_jni_bridge"); }
+    static { System.loadLibrary("appmodules"); }
     VedicEngineModule(ReactApplicationContext context) { super(context); }
 
     @Override

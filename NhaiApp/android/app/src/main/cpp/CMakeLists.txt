@@ -1,12 +1,14 @@
-cmake_minimum_required(VERSION 3.10.2)
-project(vedic_jni_bridge)
+cmake_minimum_required(VERSION 3.13)
+project(appmodules)
 
-# Explicitly tell the GitHub Actions Cloud Runner where your bundled OpenCV lives
+# Instruct the build where our bundled OpenCV config rests
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
 find_package(OpenCV REQUIRED)
 
-# Explicit, Absolute Paths for the Ninja Build System
-add_library(vedic_jni_bridge SHARED
+include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
+
+# Inject your custom C++ Vedic kernels directly into the core appmodules target
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/jni_bridge.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/face_vision.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/liveness_check.cpp
@@ -15,9 +17,11 @@ add_library(vedic_jni_bridge SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/src/urdhva_multiplication.cpp
 )
 
-# Wire up include directories and native libraries
-target_include_directories(vedic_jni_bridge PRIVATE ${OpenCV_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(vedic_jni_bridge ${OpenCV_LIBS} log)
+# Tell appmodules where your header includes are located
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE 
+    ${OpenCV_INCLUDE_DIRS} 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
-# High-performance footprint optimization flags
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Os")
+# Link OpenCV and logging directly into appmodules
+target_link_libraries(${CMAKE_PROJECT_NAME} ${OpenCV_LIBS} log)
