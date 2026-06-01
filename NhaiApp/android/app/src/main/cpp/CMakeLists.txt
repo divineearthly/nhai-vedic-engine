@@ -1,13 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 project(appmodules)
 
-# FORCE PRODUCTION OPTIMIZATION (Removed the compiler-blocking '-s' argument)
-set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_FLAGS "-O3 -Os -fvisibility=hidden")
+# SAFELY APPEND OPTIMIZATIONS (Preserves underlying system macro declarations)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Os -fvisibility=hidden -Wno-deprecated-anon-enum-enum-conversion -Wno-error=deprecated-anon-enum-enum-conversion")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--strip-all")
-
-# Shield the compiler from OpenCV legacy enum conversion warnings
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-anon-enum-enum-conversion -Wno-error=deprecated-anon-enum-enum-conversion")
 
 # Activate official OpenCV static component tracking
 set(OpenCV_STATIC ON)
