@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 project(appmodules)
 
-# FORCE PRODUCTION OPTIMIZATION (Discards massive C++ debug symbol tables)
+# FORCE PRODUCTION OPTIMIZATION (Removed the compiler-blocking '-s' argument)
 set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_FLAGS "-O3 -Os -s -fvisibility=hidden")
+set(CMAKE_CXX_FLAGS "-O3 -Os -fvisibility=hidden")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--strip-all")
 
 # Shield the compiler from OpenCV legacy enum conversion warnings
