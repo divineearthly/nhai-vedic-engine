@@ -7,7 +7,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-anon-enum-enum-conversio
 # Activate official OpenCV static component tracking
 set(OpenCV_STATIC ON)
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
-find_package(OpenCV REQUIRED core imgproc objdetect)
+
+# Added imgcodecs explicitly to support cv::imread and cv::imwrite operations
+find_package(OpenCV REQUIRED core imgproc objdetect imgcodecs)
 
 include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
 
