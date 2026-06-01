@@ -44,6 +44,7 @@ jobs:
         rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
         rm -rf opencv/sdk/native/staticlibs/x86
         rm -rf opencv/sdk/native/staticlibs/x86_64
+        rm -rf opencv/sdk/native/libs/arm64-v8a
 
     - name: Pre-Bundle Standalone JavaScript UI Assets
       run: |
