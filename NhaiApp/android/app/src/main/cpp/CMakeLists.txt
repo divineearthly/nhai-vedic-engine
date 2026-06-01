@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 project(appmodules)
 
+# Shield the compiler from OpenCV legacy enum conversion warnings
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-anon-enum-enum-conversion -Wno-error=deprecated-anon-enum-enum-conversion")
+
 # Target pre-built static libraries directly to prevent full SDK bloat
 set(OPENCV_STATIC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/staticlibs/arm64-v8a")
 set(OPENCV_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni/include")
