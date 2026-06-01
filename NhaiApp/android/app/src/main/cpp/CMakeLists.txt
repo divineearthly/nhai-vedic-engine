@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 project(appmodules)
 
-# SAFELY APPEND OPTIMIZATIONS (Preserves underlying system macro declarations)
+# SAFELY APPEND OPTIMIZATIONS (Let Android manage the build type variant dynamically)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Os -fvisibility=hidden -Wno-deprecated-anon-enum-enum-conversion -Wno-error=deprecated-anon-enum-enum-conversion")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--strip-all")
 
