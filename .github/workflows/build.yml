@@ -36,23 +36,20 @@ jobs:
         unzip -q opencv-4.9.0-android-sdk.zip
         mv OpenCV-android-sdk opencv
         rm opencv-4.9.0-android-sdk.zip
-        
-        # Size Optimization: Purge unneeded architecture binaries
+
+        # Size Optimization: Purge unneeded architecture binaries and shared libs
         rm -rf opencv/sdk/native/libs/armeabi-v7a
         rm -rf opencv/sdk/native/libs/x86
         rm -rf opencv/sdk/native/libs/x86_64
+        rm -rf opencv/sdk/native/libs/arm64-v8a
         rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
         rm -rf opencv/sdk/native/staticlibs/x86
         rm -rf opencv/sdk/native/staticlibs/x86_64
-        rm -rf opencv/sdk/native/libs/arm64-v8a
 
     - name: Pre-Bundle Standalone JavaScript UI Assets
       run: |
         cd NhaiApp
-        # Create the local assets directory inside the Android project tree
         mkdir -p android/app/src/main/assets
-        
-        # Force-compile the JavaScript entry point into a hard-baked asset file
         npx react-native bundle \
           --platform android \
           --dev false \
@@ -64,14 +61,16 @@ jobs:
       run: |
         echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
 
-    - name: Compile C++ Kernels & Package Android APK
+    - name: Compile C++ Kernels & Package Production Release APK
       run: |
         cd NhaiApp/android
         chmod +x gradlew
-        ./gradlew assembleDebug -PreactNativeArchitectures=arm64-v8a --no-daemon
+        # Switched to assembleRelease for complete optimization and stripping
+        ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --no-daemon
 
     - name: Upload Finished App Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Sovereign-AI-Offline-Engine
-        path: NhaiApp/android/app/build/outputs/apk/debug/app-debug.apk
+        # Wildcard path handles both signed and unsigned release outputs smoothly
+        path: NhaiApp/android/app/build/outputs/apk/release/*.apk
