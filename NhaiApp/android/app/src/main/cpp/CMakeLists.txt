@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.13)
 project(appmodules)
 
+# FORCE PRODUCTION OPTIMIZATION (Discards massive C++ debug symbol tables)
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_FLAGS "-O3 -Os -s -fvisibility=hidden")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--strip-all")
+
 # Shield the compiler from OpenCV legacy enum conversion warnings
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-anon-enum-enum-conversion -Wno-error=deprecated-anon-enum-enum-conversion")
 
@@ -8,7 +13,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-anon-enum-enum-conversio
 set(OpenCV_STATIC ON)
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/opencv/sdk/native/jni")
 
-# Added imgcodecs explicitly to support cv::imread and cv::imwrite operations
+# Link only specific static layers
 find_package(OpenCV REQUIRED core imgproc objdetect imgcodecs)
 
 include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
@@ -34,6 +39,3 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     ${OpenCV_LIBS}
     log
 )
-
-# Inject size-optimization compilation parameters
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Os -s")
