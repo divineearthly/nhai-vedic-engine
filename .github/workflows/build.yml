@@ -12,13 +12,13 @@ jobs:
     - name: Checkout Code Base
       uses: actions/checkout@v4
 
-    - name: Set up Java 17 (Stable NDK Standard)
+    - name: Set up Java 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'zulu'
 
-    - name: Set up Node.js (Upgraded to v20 for modern Metro bundler)
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
@@ -31,33 +31,28 @@ jobs:
     - name: Inject & Optimize OpenCV Android SDK
       run: |
         cd NhaiApp/android/app/src/main/cpp
-        echo "Downloading OpenCV for Android..."
         wget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zip
         unzip -q opencv-4.9.0-android-sdk.zip
         mv OpenCV-android-sdk opencv
         rm opencv-4.9.0-android-sdk.zip
-
-        # Size Optimization: Purge unneeded architecture binaries and shared libs
         rm -rf opencv/sdk/native/libs/armeabi-v7a
         rm -rf opencv/sdk/native/libs/x86
         rm -rf opencv/sdk/native/libs/x86_64
         rm -rf opencv/sdk/native/libs/arm64-v8a
-        mkdir -p opencv/sdk/native/libs/arm64-v8a
-        touch opencv/sdk/native/libs/arm64-v8a/libopencv_java4.so
         rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
         rm -rf opencv/sdk/native/staticlibs/x86
         rm -rf opencv/sdk/native/staticlibs/x86_64
+        mkdir -p opencv/sdk/native/libs/arm64-v8a
+        touch opencv/sdk/native/libs/arm64-v8a/libopencv_java4.so
 
     - name: Accept Android SDK Licenses & Setup Environment
-      run: |
-        echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
+      run: echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
 
     - name: Compile C++ Kernels & Package Production Release APK
       run: |
         cd NhaiApp/android
         chmod +x gradlew
-        
-        # Let Gradle naturally orchestrate Codegen, Bundling, and CMake stripping
+        ./gradlew generateCodegenArtifactsFromSchema --no-daemon
         ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --no-daemon
 
     - name: Upload Finished App Artifact
