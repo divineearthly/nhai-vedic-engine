@@ -31,7 +31,8 @@ jobs:
     - name: Inject & Optimize OpenCV Android SDK
       run: |
         cd NhaiApp/android/app/src/main/cpp
-        wget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zipn        unzip -q opencv-4.9.0-android-sdk.zip
+        wget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zip
+        unzip -q opencv-4.9.0-android-sdk.zip
         mv OpenCV-android-sdk opencv
         rm opencv-4.9.0-android-sdk.zip
         rm -rf opencv/sdk/native/libs/armeabi-v7a
