@@ -42,6 +42,8 @@ jobs:
         rm -rf opencv/sdk/native/libs/x86
         rm -rf opencv/sdk/native/libs/x86_64
         rm -rf opencv/sdk/native/libs/arm64-v8a
+        mkdir -p opencv/sdk/native/libs/arm64-v8a
+        touch opencv/sdk/native/libs/arm64-v8a/libopencv_java4.so
         rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
         rm -rf opencv/sdk/native/staticlibs/x86
         rm -rf opencv/sdk/native/staticlibs/x86_64
