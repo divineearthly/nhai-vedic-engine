@@ -73,6 +73,9 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
 android {
+    packagingOptions {
+        exclude "lib/arm64-v8a/libopencv_java4.so"
+    }
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
@@ -123,6 +126,9 @@ dependencies {
 }
 
 android {
+    packagingOptions {
+        exclude "lib/arm64-v8a/libopencv_java4.so"
+    }
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
