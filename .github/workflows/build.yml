@@ -41,20 +41,10 @@ jobs:
         rm -rf opencv/sdk/native/libs/armeabi-v7a
         rm -rf opencv/sdk/native/libs/x86
         rm -rf opencv/sdk/native/libs/x86_64
+        rm -rf opencv/sdk/native/libs/arm64-v8a
         rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
         rm -rf opencv/sdk/native/staticlibs/x86
         rm -rf opencv/sdk/native/staticlibs/x86_64
-
-    - name: Pre-Bundle Standalone JavaScript UI Assets
-      run: |
-        cd NhaiApp
-        mkdir -p android/app/src/main/assets
-        npx react-native bundle \
-          --platform android \
-          --dev false \
-          --entry-file index.js \
-          --bundle-output android/app/src/main/assets/index.android.bundle \
-          --assets-dest android/app/src/main/res
 
     - name: Accept Android SDK Licenses & Setup Environment
       run: |
@@ -64,12 +54,12 @@ jobs:
       run: |
         cd NhaiApp/android
         chmod +x gradlew
-        # Switched to assembleRelease for complete optimization and stripping
+        
+        # Let Gradle naturally orchestrate Codegen, Bundling, and CMake stripping
         ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --no-daemon
 
     - name: Upload Finished App Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Sovereign-AI-Offline-Engine
-        # Wildcard path handles both signed and unsigned release outputs smoothly
         path: NhaiApp/android/app/build/outputs/apk/release/*.apk
