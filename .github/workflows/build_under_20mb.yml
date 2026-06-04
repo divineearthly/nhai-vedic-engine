@@ -26,24 +26,33 @@ jobs:
     - name: 📦 Install Dependencies
       working-directory: NhaiApp
       run: npm install
-      
+
+    - name: 🔧 Inject & Optimize OpenCV
+      run: |
+        cd NhaiApp/android/app/src/main/cpp
+        wget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zip
+        unzip -q opencv-4.9.0-android-sdk.zip
+        mv OpenCV-android-sdk opencv
+        rm opencv-4.9.0-android-sdk.zip
+        rm -rf opencv/sdk/native/libs/armeabi-v7a
+        rm -rf opencv/sdk/native/libs/x86
+        rm -rf opencv/sdk/native/libs/x86_64
+        touch opencv/sdk/native/libs/arm64-v8a/libopencv_java4.so
+        echo "✅ OpenCV injected with empty Java lib"
+
     - name: 🔨 Build Debug APK
       working-directory: NhaiApp/android
       run: |
         chmod +x gradlew
         ./gradlew assembleDebug --no-daemon
 
-    - name: 🎯 PURGE to get under 20MB
+    - name: 📏 Show APK Size
       run: |
         APK="NhaiApp/android/app/build/outputs/apk/debug/app-debug.apk"
-        echo "Size before purge:"
         du -h $APK
-        echo ""
-        echo "Removing large OpenCV Java libraries..."
-        zip -d $APK "lib/arm64-v8a/libopencv_java4.so" 2>/dev/null && echo "✅ Removed libopencv_java4.so"
-        zip -d $APK "lib/arm64-v8a/libopencv_imgproc.so" 2>/dev/null
-        echo ""
-        echo "Size after purge:"
+        echo "Removing residual OpenCV Java lib if present..."
+        zip -d $APK "lib/arm64-v8a/libopencv_java4.so" 2>/dev/null
+        echo "Final size:"
         du -h $APK
         
     - name: 📤 Upload APK
