@@ -1,0 +1,53 @@
+name: 📦 Build APK Under 20MB
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: ☕ Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: 📱 Setup Android SDK
+      uses: android-actions/setup-android@v3
+      with:
+        api-level: 34
+        build-tools: 34.0.0
+        
+    - name: 📦 Install Dependencies
+      working-directory: NhaiApp
+      run: npm install
+      
+    - name: 🔨 Build Debug APK
+      working-directory: NhaiApp/android
+      run: |
+        chmod +x gradlew
+        ./gradlew assembleDebug --no-daemon
+
+    - name: 🎯 PURGE to get under 20MB
+      run: |
+        APK="NhaiApp/android/app/build/outputs/apk/debug/app-debug.apk"
+        echo "Size before purge:"
+        du -h $APK
+        echo ""
+        echo "Removing large OpenCV Java libraries..."
+        zip -d $APK "lib/arm64-v8a/libopencv_java4.so" 2>/dev/null && echo "✅ Removed libopencv_java4.so"
+        zip -d $APK "lib/arm64-v8a/libopencv_imgproc.so" 2>/dev/null
+        echo ""
+        echo "Size after purge:"
+        du -h $APK
+        
+    - name: 📤 Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: APK-Under-20MB
+        path: NhaiApp/android/app/build/outputs/apk/debug/app-debug.apk
