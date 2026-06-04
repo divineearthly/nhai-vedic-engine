@@ -1,0 +1,87 @@
+name: NHAI Android Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      ANDROID_NDK_VERSION: 27.1.12297006
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept SDK Licenses
+        run: yes | sdkmanager --licenses
+
+      - name: Install NDK
+        run: sdkmanager "ndk;${ANDROID_NDK_VERSION}"
+
+      - name: Verify NDK
+        run: |
+          ls $ANDROID_SDK_ROOT/ndk
+          echo "NDK Installed"
+
+      - name: Install Dependencies
+        run: |
+          npm install
+
+      - name: Verify OpenCV
+        run: |
+          find android/app/src/main/cpp/opencv -name "libopencv_core.a"
+          find android/app/src/main/cpp/opencv -name "opencv.hpp"
+
+      - name: Build Debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
+      - name: Build Release Bundle
+        run: |
+          cd android
+          ./gradlew bundleRelease --stacktrace || true
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: NhaiApp-Debug-APK
+          path: android/app/build/outputs/apk/debug/*.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: NhaiApp-Release-AAB
+          path: android/app/build/outputs/bundle/release/*.aab
+          if-no-files-found: ignore
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Build-Logs
+          path: |
+            android/**/*.log
+            android/build/reports/**
