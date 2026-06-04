@@ -8,26 +8,26 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: 📥 Checkout
+    - name: Checkout Code Base
       uses: actions/checkout@v4
-      
-    - name: ☕ Setup Java
+
+    - name: Set up Java 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
-        distribution: 'temurin'
-        
-    - name: 📱 Setup Android SDK
-      uses: android-actions/setup-android@v3
-      with:
-        api-level: 34
-        build-tools: 34.0.0
-        
-    - name: 📦 Install Dependencies
-      working-directory: NhaiApp
-      run: npm install
+        distribution: 'zulu'
 
-    - name: 🔧 Inject & Optimize OpenCV
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd NhaiApp
+        npm install
+
+    - name: Inject & Optimize OpenCV Android SDK
       run: |
         cd NhaiApp/android/app/src/main/cpp
         wget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zip
@@ -37,36 +37,23 @@ jobs:
         rm -rf opencv/sdk/native/libs/armeabi-v7a
         rm -rf opencv/sdk/native/libs/x86
         rm -rf opencv/sdk/native/libs/x86_64
+        rm -rf opencv/sdk/native/staticlibs/armeabi-v7a
+        rm -rf opencv/sdk/native/staticlibs/x86
+        rm -rf opencv/sdk/native/staticlibs/x86_64
+        mkdir -p opencv/sdk/native/libs/arm64-v8a
         touch opencv/sdk/native/libs/arm64-v8a/libopencv_java4.so
-        echo "✅ OpenCV injected"
 
-    - name: 🔨 Build Release APK
-      working-directory: NhaiApp/android
+    - name: Accept Android SDK Licenses
+      run: echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
+
+    - name: Compile & Package Release APK
       run: |
+        cd NhaiApp/android
         chmod +x gradlew
-        ./gradlew assembleRelease --no-daemon
+        ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --no-daemon
 
-    - name: 📏 Check APK Size
-      run: |
-        APK="NhaiApp/android/app/build/outputs/apk/release/app-release.apk"
-        if [ -f "$APK" ]; then
-          SIZE=$(du -m "$APK" | cut -f1)
-          echo "📏 Release APK Size: ${SIZE}MB"
-          if [ "$SIZE" -lt 20 ]; then
-            echo "✅ UNDER 20MB - HACKATHON READY!"
-          else
-            echo "⚠️ ${SIZE}MB - stripping..."
-            zip -d "$APK" "lib/arm64-v8a/libopencv_java4.so" 2>/dev/null
-            SIZE2=$(du -m "$APK" | cut -f1)
-            echo "📏 After strip: ${SIZE2}MB"
-          fi
-        else
-          echo "❌ Release APK not found. Checking debug..."
-          ls -lh NhaiApp/android/app/build/outputs/apk/release/ 2>/dev/null
-        fi
-        
-    - name: 📤 Upload Release APK
+    - name: Upload Release APK
       uses: actions/upload-artifact@v4
       with:
         name: Release-APK-Under-20MB
-        path: NhaiApp/android/app/build/outputs/apk/release/app-release.apk
+        path: NhaiApp/android/app/build/outputs/apk/release/*.apk
