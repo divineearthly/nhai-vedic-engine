@@ -1,0 +1,51 @@
+name: 📦 Build Release APK <20MB
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: ☕ Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: 📱 Setup Android SDK
+      uses: android-actions/setup-android@v3
+      with:
+        api-level: 34
+        build-tools: 34.0.0
+        
+    - name: 📦 Install Node Dependencies
+      working-directory: NhaiApp
+      run: npm install
+      
+    - name: 🔨 Build Release APK
+      working-directory: NhaiApp/android
+      run: |
+        chmod +x gradlew
+        ./gradlew assembleRelease --no-daemon
+        
+    - name: 📤 Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: SovereignVision-APK-Release
+        path: NhaiApp/android/app/build/outputs/apk/release/app-release.apk
+        
+    - name: 📊 Size Check
+      run: |
+        echo "📏 APK Size:"
+        ls -lh NhaiApp/android/app/build/outputs/apk/release/
+        SIZE=$(du -m NhaiApp/android/app/build/outputs/apk/release/app-release.apk | cut -f1)
+        if [ "$SIZE" -lt 20 ]; then
+          echo "✅ APK under 20MB: ${SIZE}MB"
+        else
+          echo "⚠️ APK over 20MB: ${SIZE}MB"
+        fi
