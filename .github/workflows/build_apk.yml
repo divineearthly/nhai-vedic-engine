@@ -29,6 +29,11 @@ jobs:
       working-directory: NhaiApp
       run: npm install
       
+    - name: 🧹 Clean CMake Cache
+      run: |
+        rm -rf core_kernel/build
+        echo "✅ CMake cache cleaned for fresh build"
+        
     - name: 🛡️ Compile Vedic C++ Core
       run: |
         cd core_kernel
