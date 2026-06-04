@@ -1,0 +1,15 @@
+📁 NHAI-Vedic-engine/
+├── 📁 models/
+│   ├── face_detection.tflite       (< 5MB)
+│   ├── liveness_classifier.onnx    (< 3MB)
+│   └── kosha_validator.tflite      (< 2MB)
+├── 📁 src/
+│   ├── 🕉️  SchedulerDharma.js       # Natural rhythm sync
+│   ├── 🕉️  SyadvadaLogic.js         # Multi-truth analysis
+│   ├── 🕉️  TrigunaFilter.js         # Sattvic state detection
+│   ├── 🕉️  PramanaValidator.js      # Triple verification
+│   └── 🕉️  KoshaMapper.js           # Identity layer mapping
+├── 📁 benchmarks/
+│   ├── accuracy_report.json
+│   └── performance_metrics.json
+└── 📄 README.md

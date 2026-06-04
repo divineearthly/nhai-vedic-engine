@@ -1,0 +1,755 @@
+build_android	Set up job	﻿2026-06-01T16:31:52.3611364Z Current runner version: '2.334.0'
+build_android	Set up job	2026-06-01T16:31:52.3637369Z ##[group]Runner Image Provisioner
+build_android	Set up job	2026-06-01T16:31:52.3638250Z Hosted Compute Agent
+build_android	Set up job	2026-06-01T16:31:52.3639168Z Version: 20260520.533
+build_android	Set up job	2026-06-01T16:31:52.3639826Z Commit: 189110e25284a9812c124fd27b339e2fb4f2f9db
+build_android	Set up job	2026-06-01T16:31:52.3640564Z Build Date: 2026-05-20T17:44:04Z
+build_android	Set up job	2026-06-01T16:31:52.3641399Z Worker ID: {94137139-9fe3-4110-a969-039128f87070}
+build_android	Set up job	2026-06-01T16:31:52.3642126Z Azure Region: eastus
+build_android	Set up job	2026-06-01T16:31:52.3642760Z ##[endgroup]
+build_android	Set up job	2026-06-01T16:31:52.3644134Z ##[group]Operating System
+build_android	Set up job	2026-06-01T16:31:52.3644840Z Ubuntu
+build_android	Set up job	2026-06-01T16:31:52.3645531Z 24.04.4
+build_android	Set up job	2026-06-01T16:31:52.3646079Z LTS
+build_android	Set up job	2026-06-01T16:31:52.3646652Z ##[endgroup]
+build_android	Set up job	2026-06-01T16:31:52.3647252Z ##[group]Runner Image
+build_android	Set up job	2026-06-01T16:31:52.3647897Z Image: ubuntu-24.04
+build_android	Set up job	2026-06-01T16:31:52.3648620Z Version: 20260525.161.1
+build_android	Set up job	2026-06-01T16:31:52.3650091Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260525.161/images/ubuntu/Ubuntu2404-Readme.md
+build_android	Set up job	2026-06-01T16:31:52.3651917Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260525.161
+build_android	Set up job	2026-06-01T16:31:52.3652906Z ##[endgroup]
+build_android	Set up job	2026-06-01T16:31:52.3654196Z ##[group]GITHUB_TOKEN Permissions
+build_android	Set up job	2026-06-01T16:31:52.3656204Z Contents: read
+build_android	Set up job	2026-06-01T16:31:52.3657320Z Metadata: read
+build_android	Set up job	2026-06-01T16:31:52.3657924Z Packages: read
+build_android	Set up job	2026-06-01T16:31:52.3658489Z ##[endgroup]
+build_android	Set up job	2026-06-01T16:31:52.3661017Z Secret source: Actions
+build_android	Set up job	2026-06-01T16:31:52.3661810Z Prepare workflow directory
+build_android	Set up job	2026-06-01T16:31:52.4078583Z Prepare all required actions
+build_android	Set up job	2026-06-01T16:31:52.4132606Z Getting action download info
+build_android	Set up job	2026-06-01T16:31:52.8954155Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build_android	Set up job	2026-06-01T16:31:52.9946747Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+build_android	Set up job	2026-06-01T16:31:53.2611095Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build_android	Set up job	2026-06-01T16:31:53.3513935Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+build_android	Set up job	2026-06-01T16:31:53.6277342Z Complete job name: build_android
+build_android	Checkout Code Base	﻿2026-06-01T16:31:53.7027679Z ##[group]Run actions/checkout@v4
+build_android	Checkout Code Base	2026-06-01T16:31:53.7028583Z with:
+build_android	Checkout Code Base	2026-06-01T16:31:53.7029267Z   repository: divineearthly/nhai-vedic-engine
+build_android	Checkout Code Base	2026-06-01T16:31:53.7034821Z   token: ***
+build_android	Checkout Code Base	2026-06-01T16:31:53.7035279Z   ssh-strict: true
+build_android	Checkout Code Base	2026-06-01T16:31:53.7035749Z   ssh-user: git
+build_android	Checkout Code Base	2026-06-01T16:31:53.7036221Z   persist-credentials: true
+build_android	Checkout Code Base	2026-06-01T16:31:53.7036751Z   clean: true
+build_android	Checkout Code Base	2026-06-01T16:31:53.7037220Z   sparse-checkout-cone-mode: true
+build_android	Checkout Code Base	2026-06-01T16:31:53.7037785Z   fetch-depth: 1
+build_android	Checkout Code Base	2026-06-01T16:31:53.7038252Z   fetch-tags: false
+build_android	Checkout Code Base	2026-06-01T16:31:53.7038729Z   show-progress: true
+build_android	Checkout Code Base	2026-06-01T16:31:53.7039406Z   lfs: false
+build_android	Checkout Code Base	2026-06-01T16:31:53.7040100Z   submodules: false
+build_android	Checkout Code Base	2026-06-01T16:31:53.7040572Z   set-safe-directory: true
+build_android	Checkout Code Base	2026-06-01T16:31:53.7041342Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:53.8153856Z Syncing repository: divineearthly/nhai-vedic-engine
+build_android	Checkout Code Base	2026-06-01T16:31:53.8155958Z ##[group]Getting Git version info
+build_android	Checkout Code Base	2026-06-01T16:31:53.8156905Z Working directory is '/home/runner/work/nhai-vedic-engine/nhai-vedic-engine'
+build_android	Checkout Code Base	2026-06-01T16:31:53.8158270Z [command]/usr/bin/git version
+build_android	Checkout Code Base	2026-06-01T16:31:53.8225143Z git version 2.54.0
+build_android	Checkout Code Base	2026-06-01T16:31:53.8249983Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:53.8264378Z Temporarily overriding HOME='/home/runner/work/_temp/90199da1-455c-41ba-a459-b1bbb62de3d4' before making global git config changes
+build_android	Checkout Code Base	2026-06-01T16:31:53.8266110Z Adding repository directory to the temporary git global config as a safe directory
+build_android	Checkout Code Base	2026-06-01T16:31:53.8277500Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/nhai-vedic-engine/nhai-vedic-engine
+build_android	Checkout Code Base	2026-06-01T16:31:53.8323689Z Deleting the contents of '/home/runner/work/nhai-vedic-engine/nhai-vedic-engine'
+build_android	Checkout Code Base	2026-06-01T16:31:53.8327120Z ##[group]Initializing the repository
+build_android	Checkout Code Base	2026-06-01T16:31:53.8331563Z [command]/usr/bin/git init /home/runner/work/nhai-vedic-engine/nhai-vedic-engine
+build_android	Checkout Code Base	2026-06-01T16:31:53.8410697Z hint: Using 'master' as the name for the initial branch. This default branch name
+build_android	Checkout Code Base	2026-06-01T16:31:53.8412500Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build_android	Checkout Code Base	2026-06-01T16:31:53.8414041Z hint: to use in all of your new repositories, which will suppress this warning,
+build_android	Checkout Code Base	2026-06-01T16:31:53.8415041Z hint: call:
+build_android	Checkout Code Base	2026-06-01T16:31:53.8415669Z hint:
+build_android	Checkout Code Base	2026-06-01T16:31:53.8416525Z hint: 	git config --global init.defaultBranch <name>
+build_android	Checkout Code Base	2026-06-01T16:31:53.8417237Z hint:
+build_android	Checkout Code Base	2026-06-01T16:31:53.8417893Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build_android	Checkout Code Base	2026-06-01T16:31:53.8419136Z hint: 'development'. The just-created branch can be renamed via this command:
+build_android	Checkout Code Base	2026-06-01T16:31:53.8420016Z hint:
+build_android	Checkout Code Base	2026-06-01T16:31:53.8420534Z hint: 	git branch -m <name>
+build_android	Checkout Code Base	2026-06-01T16:31:53.8421329Z hint:
+build_android	Checkout Code Base	2026-06-01T16:31:53.8422397Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build_android	Checkout Code Base	2026-06-01T16:31:53.8424447Z Initialized empty Git repository in /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/.git/
+build_android	Checkout Code Base	2026-06-01T16:31:53.8427170Z [command]/usr/bin/git remote add origin https://github.com/divineearthly/nhai-vedic-engine
+build_android	Checkout Code Base	2026-06-01T16:31:53.8464425Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:53.8465286Z ##[group]Disabling automatic garbage collection
+build_android	Checkout Code Base	2026-06-01T16:31:53.8468496Z [command]/usr/bin/git config --local gc.auto 0
+build_android	Checkout Code Base	2026-06-01T16:31:53.8497926Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:53.8498728Z ##[group]Setting up auth
+build_android	Checkout Code Base	2026-06-01T16:31:53.8504782Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build_android	Checkout Code Base	2026-06-01T16:31:53.8537223Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build_android	Checkout Code Base	2026-06-01T16:31:53.8854379Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build_android	Checkout Code Base	2026-06-01T16:31:53.8884577Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build_android	Checkout Code Base	2026-06-01T16:31:53.9113065Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build_android	Checkout Code Base	2026-06-01T16:31:53.9143878Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build_android	Checkout Code Base	2026-06-01T16:31:53.9389334Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build_android	Checkout Code Base	2026-06-01T16:31:53.9429363Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:53.9431121Z ##[group]Fetching the repository
+build_android	Checkout Code Base	2026-06-01T16:31:53.9440654Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8e8fd70c833d07aaf8f9decc6b6202aa99d0d715:refs/remotes/origin/main
+build_android	Checkout Code Base	2026-06-01T16:31:54.2013131Z From https://github.com/divineearthly/nhai-vedic-engine
+build_android	Checkout Code Base	2026-06-01T16:31:54.2015491Z  * [new ref]         8e8fd70c833d07aaf8f9decc6b6202aa99d0d715 -> origin/main
+build_android	Checkout Code Base	2026-06-01T16:31:54.2056115Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:54.2057899Z ##[group]Determining the checkout info
+build_android	Checkout Code Base	2026-06-01T16:31:54.2060105Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:54.2066600Z [command]/usr/bin/git sparse-checkout disable
+build_android	Checkout Code Base	2026-06-01T16:31:54.2114611Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build_android	Checkout Code Base	2026-06-01T16:31:54.2145160Z ##[group]Checking out the ref
+build_android	Checkout Code Base	2026-06-01T16:31:54.2148116Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build_android	Checkout Code Base	2026-06-01T16:31:54.2298226Z Switched to a new branch 'main'
+build_android	Checkout Code Base	2026-06-01T16:31:54.2300792Z branch 'main' set up to track 'origin/main'.
+build_android	Checkout Code Base	2026-06-01T16:31:54.2309753Z ##[endgroup]
+build_android	Checkout Code Base	2026-06-01T16:31:54.2346510Z [command]/usr/bin/git log -1 --format=%H
+build_android	Checkout Code Base	2026-06-01T16:31:54.2370072Z 8e8fd70c833d07aaf8f9decc6b6202aa99d0d715
+build_android	Set up Java 17 (Stable NDK Standard)	﻿2026-06-01T16:31:54.2824600Z ##[group]Run actions/setup-java@v4
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2825734Z with:
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2826564Z   java-version: 17
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2827673Z   distribution: zulu
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2828599Z   java-package: jdk
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2829681Z   check-latest: false
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2830602Z   server-id: github
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2831524Z   server-username: GITHUB_ACTOR
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2832605Z   server-password: GITHUB_TOKEN
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2833675Z   overwrite-settings: true
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2834676Z   job-status: success
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2844950Z   token: ***
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.2845804Z ##[endgroup]
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.4868514Z ##[group]Installed distributions
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.4892431Z Trying to resolve the latest version from remote
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.5727713Z Resolved latest version as 17.0.19+10
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.5729212Z Trying to download...
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:54.5731301Z Downloading Java 17.0.19+10 (Zulu) from https://cdn.azul.com/zulu/bin/zulu17.66.19-ca-crac-jdk17.0.19-linux_x64.tar.gz ...
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:58.9379140Z Extracting Java archive...
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:31:58.9478824Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/320b7d2d-ee53-4867-ae64-834feb6c09a4 -f /home/runner/work/_temp/5d238fba-0716-4778-a3e6-eb5678f1c977
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7156858Z Java 17.0.19+10 was downloaded
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7157779Z Setting Java 17.0.19+10 as the default
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7161812Z Creating toolchains.xml for JDK version 17 from zulu
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7241838Z Writing to /home/runner/.m2/toolchains.xml
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7242350Z 
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7242533Z Java configuration:
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7243015Z   Distribution: zulu
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7243425Z   Version: 17.0.19+10
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7243942Z   Path: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7244373Z 
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7251100Z ##[endgroup]
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7273530Z Creating settings.xml with server-id: github
+build_android	Set up Java 17 (Stable NDK Standard)	2026-06-01T16:32:01.7274353Z Writing to /home/runner/.m2/settings.xml
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	﻿2026-06-01T16:32:01.7464757Z ##[group]Run actions/setup-node@v4
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7465101Z with:
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7465319Z   node-version: 20
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7465552Z   always-auth: false
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7465793Z   check-latest: false
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7468672Z   token: ***
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7468896Z env:
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7469343Z   JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7469777Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.7470137Z ##[endgroup]
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:01.9947725Z Attempting to download 20...
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:02.4264512Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:02.7963140Z Extracting ...
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:02.8092188Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/20b992ad-b6b8-4520-a638-605c2c067f29 -f /home/runner/work/_temp/937604df-2557-4c53-bbf8-8758e9da98f7
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:03.9080946Z Adding to the cache ...
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:05.4559700Z ##[group]Environment details
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:05.6768858Z node: v20.20.2
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:05.6769711Z npm: 10.8.2
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:05.6770013Z yarn: 1.22.22
+build_android	Set up Node.js (Upgraded to v20 for modern Metro bundler)	2026-06-01T16:32:05.6770696Z ##[endgroup]
+build_android	Install Frontend Dependencies	﻿2026-06-01T16:32:05.6935964Z ##[group]Run cd NhaiApp
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6936301Z ^[[36;1mcd NhaiApp^[[0m
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6936556Z ^[[36;1mnpm install^[[0m
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6970133Z shell: /usr/bin/bash -e {0}
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6970420Z env:
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6970721Z   JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6971165Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Install Frontend Dependencies	2026-06-01T16:32:05.6971524Z ##[endgroup]
+build_android	Install Frontend Dependencies	2026-06-01T16:32:06.3308510Z npm warn EBADENGINE Unsupported engine {
+build_android	Install Frontend Dependencies	2026-06-01T16:32:06.3309611Z npm warn EBADENGINE   package: 'NhaiApp@0.0.1',
+build_android	Install Frontend Dependencies	2026-06-01T16:32:06.3310339Z npm warn EBADENGINE   required: { node: '>= 22.11.0' },
+build_android	Install Frontend Dependencies	2026-06-01T16:32:06.3311113Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+build_android	Install Frontend Dependencies	2026-06-01T16:32:06.3312279Z npm warn EBADENGINE }
+build_android	Install Frontend Dependencies	2026-06-01T16:32:08.4971797Z npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+build_android	Install Frontend Dependencies	2026-06-01T16:32:09.5296108Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+build_android	Install Frontend Dependencies	2026-06-01T16:32:09.7167904Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+build_android	Install Frontend Dependencies	2026-06-01T16:32:10.8830217Z npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+build_android	Install Frontend Dependencies	2026-06-01T16:32:10.9343822Z npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+build_android	Install Frontend Dependencies	2026-06-01T16:32:13.6167338Z npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4638098Z 
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4639277Z added 890 packages, and audited 891 packages in 11s
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4639743Z 
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4639999Z 177 packages are looking for funding
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4653135Z   run `npm fund` for details
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4688715Z 
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4710170Z 3 moderate severity vulnerabilities
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4710536Z 
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4719767Z To address all issues, run:
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4727456Z   npm audit fix --force
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4727748Z 
+build_android	Install Frontend Dependencies	2026-06-01T16:32:16.4727992Z Run `npm audit` for details.
+build_android	Inject & Optimize OpenCV Android SDK	﻿2026-06-01T16:32:16.5041669Z ##[group]Run cd NhaiApp/android/app/src/main/cpp
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5042128Z ^[[36;1mcd NhaiApp/android/app/src/main/cpp^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5042495Z ^[[36;1mecho "Downloading OpenCV for Android..."^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5043058Z ^[[36;1mwget -q https://github.com/opencv/opencv/releases/download/4.9.0/opencv-4.9.0-android-sdk.zip^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5043629Z ^[[36;1munzip -q opencv-4.9.0-android-sdk.zip^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5043952Z ^[[36;1mmv OpenCV-android-sdk opencv^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5044248Z ^[[36;1mrm opencv-4.9.0-android-sdk.zip^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5044520Z ^[[36;1m^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5044862Z ^[[36;1m# Size Optimization: Purge unneeded architecture binaries and shared libs^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5045314Z ^[[36;1mrm -rf opencv/sdk/native/libs/armeabi-v7a^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5045635Z ^[[36;1mrm -rf opencv/sdk/native/libs/x86^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5045947Z ^[[36;1mrm -rf opencv/sdk/native/libs/x86_64^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5046288Z ^[[36;1mrm -rf opencv/sdk/native/staticlibs/armeabi-v7a^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5046684Z ^[[36;1mrm -rf opencv/sdk/native/staticlibs/x86^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5047019Z ^[[36;1mrm -rf opencv/sdk/native/staticlibs/x86_64^[[0m
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5075993Z shell: /usr/bin/bash -e {0}
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5076259Z env:
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5076558Z   JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5076996Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5077347Z ##[endgroup]
+build_android	Inject & Optimize OpenCV Android SDK	2026-06-01T16:32:16.5130041Z Downloading OpenCV for Android...
+build_android	Pre-Bundle Standalone JavaScript UI Assets	﻿2026-06-01T16:32:24.2697292Z ##[group]Run cd NhaiApp
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2697755Z ^[[36;1mcd NhaiApp^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2698192Z ^[[36;1mmkdir -p android/app/src/main/assets^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2698704Z ^[[36;1mnpx react-native bundle \^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2699349Z ^[[36;1m  --platform android \^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2699764Z ^[[36;1m  --dev false \^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2700160Z ^[[36;1m  --entry-file index.js \^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2700786Z ^[[36;1m  --bundle-output android/app/src/main/assets/index.android.bundle \^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2701437Z ^[[36;1m  --assets-dest android/app/src/main/res^[[0m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2742587Z shell: /usr/bin/bash -e {0}
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2742998Z env:
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2743714Z   JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2744382Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:24.2744928Z ##[endgroup]
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1326020Z ^[[34m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1326698Z                         ▒▒▓▓▓▓▒▒
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1327337Z                      ▒▓▓▓▒▒░░▒▒▓▓▓▒
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1327817Z                   ▒▓▓▓▓░░░▒▒▒▒░░░▓▓▓▓▒
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1328303Z                  ▓▓▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▓▓
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1328771Z                  ▓▓░░░░░▒▓▓▓▓▓▓▒░░░░░▓▓
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1329580Z                  ▓▓░░▓▓▒░░░▒▒░░░▒▓▒░░▓▓
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1330102Z                  ▓▓░░▓▓▓▓▓▒▒▒▒▓▓▓▓▒░░▓▓
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1330555Z                  ▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▒░░▓▓
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1331005Z                  ▓▓▒░░▒▒▓▓▓▓▓▓▓▓▒░░░▒▓▓
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1331452Z                   ▒▓▓▓▒░░░▒▓▓▒░░░▒▓▓▓▒
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1331940Z                      ▒▓▓▓▒░░░░▒▓▓▓▒
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1332413Z                         ▒▒▓▓▓▓▒▒
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1332726Z 
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1332913Z ^[[39m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1336384Z ^[[34m^[[1m                Welcome to Metro ^[[37mv0.84.4^[[39m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1337440Z ^[[22m^[[39m^[[2m              Fast - Scalable - Integrated
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1337933Z 
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:25.1338375Z ^[[22m
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:41.7710179Z LOG:Writing bundle output to: android/app/src/main/assets/index.android.bundle
+build_android	Pre-Bundle Standalone JavaScript UI Assets	2026-06-01T16:32:41.7748119Z LOG:Done writing bundle output
+build_android	Accept Android SDK Licenses & Setup Environment	﻿2026-06-01T16:32:41.8572196Z ##[group]Run echo "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties
+build_android	Accept Android SDK Licenses & Setup Environment	2026-06-01T16:32:41.8572765Z ^[[36;1mecho "sdk.dir=$ANDROID_HOME" > NhaiApp/android/local.properties^[[0m
+build_android	Accept Android SDK Licenses & Setup Environment	2026-06-01T16:32:41.8602269Z shell: /usr/bin/bash -e {0}
+build_android	Accept Android SDK Licenses & Setup Environment	2026-06-01T16:32:41.8602532Z env:
+build_android	Accept Android SDK Licenses & Setup Environment	2026-06-01T16:32:41.8602826Z   JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Accept Android SDK Licenses & Setup Environment	2026-06-01T16:32:41.8603267Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Accept Android SDK Licenses & Setup Environment	2026-06-01T16:32:41.8603622Z ##[endgroup]
+build_android	Compile C++ Kernels & Package Production Release APK	﻿2026-06-01T16:32:41.8677650Z ##[group]Run cd NhaiApp/android
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8677958Z ^[[36;1mcd NhaiApp/android^[[0m
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8678220Z ^[[36;1mchmod +x gradlew^[[0m
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8678605Z ^[[36;1m# Switched to assembleRelease for complete optimization and stripping^[[0m
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8679404Z ^[[36;1m./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a --no-daemon^[[0m
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8704606Z shell: /usr/bin/bash -e {0}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8704879Z env:
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8705171Z   JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8705612Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Zulu_jdk/17.0.19-10/x64
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.8705963Z ##[endgroup]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:41.9591316Z Downloading https://services.gradle.org/distributions/gradle-8.13-all.zip
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:43.9853180Z ......................10%......................20%......................30%......................40%......................50%......................60%......................70%.......................80%......................90%......................100%
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4271466Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4273374Z Welcome to Gradle 8.13!
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4279720Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4280402Z Here are the highlights of this release:
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4281053Z  - Daemon JVM auto-provisioning
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4281648Z  - Enhancements for Scala plugin and JUnit testing
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4282260Z  - Improvements for build authors and plugin developers
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4282641Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4283083Z For more details see https://docs.gradle.org/8.13/release-notes.html
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.4290966Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:47.5281465Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.13/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:32:48.5271999Z Daemon will be stopped at the end of the build 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:32.0283605Z > Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:32.0285540Z > Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:36.8286225Z > Task :gradle-plugin:shared:processResources NO-SOURCE
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:36.8292601Z > Task :gradle-plugin:settings-plugin:pluginDescriptors
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:36.9264528Z > Task :gradle-plugin:settings-plugin:processResources
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:42.4264674Z > Task :gradle-plugin:shared:compileKotlin
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:42.4270963Z > Task :gradle-plugin:shared:compileJava NO-SOURCE
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:42.4272266Z > Task :gradle-plugin:shared:classes UP-TO-DATE
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:42.5264047Z > Task :gradle-plugin:shared:jar
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:48.7263810Z > Task :gradle-plugin:settings-plugin:compileKotlin
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:48.7264823Z > Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:48.7267874Z > Task :gradle-plugin:settings-plugin:classes
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:48.7268304Z > Task :gradle-plugin:settings-plugin:jar
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:55.4272724Z > Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:57.9265039Z > Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:33:57.9266385Z > Task :gradle-plugin:react-native-gradle-plugin:processResources
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:03.8311256Z > Task :gradle-plugin:react-native-gradle-plugin:compileKotlin
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:03.8350038Z > Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:03.8369875Z > Task :gradle-plugin:react-native-gradle-plugin:classes
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:03.8394591Z > Task :gradle-plugin:react-native-gradle-plugin:jar
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8275760Z ********************************************************************************
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8276265Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8281106Z > Configure project :
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8299710Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8330677Z WARNING: Setting `newArchEnabled=false` in your `gradle.properties` file is not
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8354553Z supported anymore since React Native 0.82.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8379319Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8410196Z You can remove the line from your `gradle.properties` file.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8439544Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8471451Z The application will run with the New Architecture enabled by default.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8509448Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8539934Z ********************************************************************************
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:12.8569326Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8263521Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8264709Z > Configure project :app
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8266262Z Checking the license for package NDK (Side by side) 27.1.12297006 in /usr/local/lib/android/sdk/licenses
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8267550Z License for package NDK (Side by side) 27.1.12297006 accepted.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8268608Z Preparing "Install NDK (Side by side) 27.1.12297006 v.27.1.12297006".
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8269829Z "Install NDK (Side by side) 27.1.12297006 v.27.1.12297006" ready.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8271059Z Installing NDK (Side by side) 27.1.12297006 in /usr/local/lib/android/sdk/ndk/27.1.12297006
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8274759Z "Install NDK (Side by side) 27.1.12297006 v.27.1.12297006" complete.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:31.8275968Z "Install NDK (Side by side) 27.1.12297006 v.27.1.12297006" finished.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:37.9263363Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:37.9264637Z > Configure project :react-native-nitro-image
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:37.9266135Z [NitroModules] 🔥 NitroImage is boosted by nitro!
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:47.1263255Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:47.1264457Z > Configure project :react-native-nitro-modules
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:34:47.1270983Z [NitroModules] 🔥 Your app is boosted by nitro modules!
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:01.6263580Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:01.6290059Z > Configure project :react-native-vision-camera
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:01.6291402Z [NitroModules] 🔥 VisionCamera is boosted by nitro!
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1266530Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1270612Z > Task :app:generateAutolinkingNewArchitectureFiles
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1271761Z > Task :app:generateAutolinkingPackageList
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1273371Z > Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1274344Z > Task :app:generateCodegenArtifactsFromSchema SKIPPED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1275204Z > Task :app:generateReactNativeEntryPoint
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1276008Z > Task :react-native-nitro-image:prepareHeaders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.1276803Z > Task :react-native-nitro-image:preBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.2264869Z > Task :react-native-nitro-modules:prepareHeaders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.2265904Z > Task :react-native-nitro-modules:preBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.3264285Z > Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.5305565Z > Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.5339889Z > Task :react-native-safe-area-context:preBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.6266184Z > Task :react-native-vision-camera:prepareHeaders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.6270879Z > Task :react-native-vision-camera:preBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.6271737Z > Task :app:preBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.6272284Z > Task :app:preReleaseBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.6299877Z > Task :react-native-nitro-image:preReleaseBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:10.6324058Z > Task :react-native-nitro-modules:preReleaseBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:12.6263292Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:12.6264432Z > Task :react-native-nitro-modules:configureCMakeRelWithDebInfo[arm64-v8a]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:12.6265459Z Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:12.6266144Z License for package CMake 3.22.1 accepted.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:12.6266656Z Preparing "Install CMake 3.22.1 v.3.22.1".
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:13.4262993Z "Install CMake 3.22.1 v.3.22.1" ready.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:13.4264035Z Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:13.4265107Z "Install CMake 3.22.1 v.3.22.1" complete.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:13.4265773Z "Install CMake 3.22.1 v.3.22.1" finished.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:43.3263928Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:43.3265307Z > Task :react-native-nitro-modules:buildCMakeRelWithDebInfo[arm64-v8a]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:43.6290265Z > Task :react-native-nitro-modules:externalNativeBuildRelease
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:43.6326240Z > Task :react-native-nitro-modules:generateJsonModelRelease
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:43.6327102Z > Task :react-native-nitro-modules:prefabReleaseConfigurePackage
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:44.2283001Z > Task :react-native-nitro-image:configureCMakeRelWithDebInfo[arm64-v8a]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:35:44.2290040Z > Task :react-native-nitro-modules:prefabReleasePackage
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7279834Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7310440Z > Task :react-native-nitro-image:buildCMakeRelWithDebInfo[arm64-v8a]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7340806Z C/C++: ninja: Entering directory `/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-nitro-image/android/.cxx/RelWithDebInfo/1j4a523a/arm64-v8a'
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7371451Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-nitro-image/nitrogen/generated/shared/c++/views/HybridNitroImageViewComponent.cpp:82:35: warning: 'RawPropsParser' is deprecated [-Wdeprecated-declarations]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7401663Z C/C++:    82 |                                   react::RawPropsParser(/* enableJsiParser */ true)) {}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7425712Z C/C++:       |                                   ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7451396Z C/C++: /home/runner/.gradle/caches/8.13/transforms/48854317aa4af219cf0511a9433eb57c/transformed/react-android-0.85.3-release/prefab/modules/reactnative/include/react/renderer/core/RawPropsParser.h:31:5: note: 'RawPropsParser' has been explicitly marked deprecated here
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7480055Z C/C++:    31 |   [[deprecated]] explicit RawPropsParser(bool /* ignored */) : RawPropsParser() {}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7499732Z C/C++:       |     ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:02.7519852Z C/C++: 1 warning generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9269663Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9272994Z > Task :react-native-nitro-modules:mergeReleaseJniLibFolders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9274063Z > Task :react-native-nitro-image:generateJsonModelRelease
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9275528Z > Task :react-native-nitro-image:mergeReleaseJniLibFolders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9279919Z > Task :react-native-vision-camera:preReleaseBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9280732Z > Task :app:mergeReleaseJniLibFolders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9281527Z > Task :react-native-safe-area-context:preReleaseBuild
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9282352Z > Task :react-native-nitro-modules:mergeReleaseNativeLibs
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9301170Z > Task :react-native-safe-area-context:mergeReleaseJniLibFolders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9329948Z > Task :react-native-safe-area-context:mergeReleaseNativeLibs NO-SOURCE
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9330914Z > Task :react-native-vision-camera:mergeReleaseJniLibFolders
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:08.9331948Z > Task :react-native-nitro-image:checkKotlinGradlePluginConfigurationErrors SKIPPED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.0291241Z > Task :react-native-nitro-image:generateReleaseBuildConfig
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.0310308Z > Task :react-native-nitro-image:generateReleaseResValues
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.0311505Z > Task :react-native-nitro-modules:copyReleaseJniLibsProjectOnly
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.0312854Z > Task :react-native-safe-area-context:copyReleaseJniLibsProjectOnly
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.0313867Z > Task :react-native-nitro-image:mergeReleaseNativeLibs
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.0314812Z > Task :react-native-nitro-image:generateReleaseResources
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.3269331Z > Task :react-native-nitro-image:externalNativeBuildRelease
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.3270697Z > Task :react-native-nitro-image:prefabReleaseConfigurePackage
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.4264094Z > Task :react-native-nitro-image:prefabReleasePackage
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:09.4265035Z > Task :react-native-nitro-image:copyReleaseJniLibsProjectOnly
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:10.4370760Z > Task :react-native-vision-camera:configureCMakeRelWithDebInfo[arm64-v8a]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1289564Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1350381Z > Task :react-native-vision-camera:buildCMakeRelWithDebInfo[arm64-v8a]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1380817Z C/C++: ninja: Entering directory `/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/android/.cxx/RelWithDebInfo/1q2x1x20/arm64-v8a'
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1441073Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/android/src/main/cpp/NativeBufferHelper.cpp:14:110: warning: unused parameter 'hardwareBufferBoxed' [-Wunused-parameter]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1470616Z C/C++:    14 | jlong NativeBufferHelper::getHardwareBufferPointer(jni::alias_ref<jni::JClass>, jni::alias_ref<jni::JObject> hardwareBufferBoxed) {
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1520105Z C/C++:       |                                                                                                              ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1540955Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/android/src/main/cpp/NativeBufferHelper.cpp:25:90: warning: unused parameter 'hardwareBufferPointer' [-Wunused-parameter]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1543246Z C/C++:    25 | void NativeBufferHelper::releaseHardwareBufferPointer(jni::alias_ref<jni::JClass>, jlong hardwareBufferPointer) {
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1544538Z C/C++:       |                                                                                          ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:13.1545132Z C/C++: 2 warnings generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:21.6291941Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/nitrogen/generated/shared/c++/HybridTapToFocusGestureControllerSpec.cpp:17:41: warning: unused parameter 'prototype' [-Wunused-parameter]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:21.6320015Z C/C++:    17 |     registerHybrids(this, [](Prototype& prototype) {
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:21.6320803Z C/C++:       |                                         ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:21.6321301Z C/C++: 1 warning generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:23.8311891Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/nitrogen/generated/shared/c++/HybridZoomGestureControllerSpec.cpp:17:41: warning: unused parameter 'prototype' [-Wunused-parameter]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:23.8319996Z C/C++:    17 |     registerHybrids(this, [](Prototype& prototype) {
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:23.8379756Z C/C++:       |                                         ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:23.8409650Z C/C++: 1 warning generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:49.3264429Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/nitrogen/generated/shared/c++/HybridCameraPreviewOutputSpec.cpp:17:41: warning: unused parameter 'prototype' [-Wunused-parameter]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:49.3269976Z C/C++:    17 |     registerHybrids(this, [](Prototype& prototype) {
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:49.3299715Z C/C++:       |                                         ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:36:49.3329678Z C/C++: 1 warning generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1266035Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/nitrogen/generated/shared/c++/views/HybridFrameRendererViewComponent.cpp:60:35: warning: 'RawPropsParser' is deprecated [-Wdeprecated-declarations]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1310175Z C/C++:    60 |                                   react::RawPropsParser(/* enableJsiParser */ true)) {}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1311142Z C/C++:       |                                   ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1341265Z C/C++: /home/runner/.gradle/caches/8.13/transforms/48854317aa4af219cf0511a9433eb57c/transformed/react-android-0.85.3-release/prefab/modules/reactnative/include/react/renderer/core/RawPropsParser.h:31:5: note: 'RawPropsParser' has been explicitly marked deprecated here
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1400164Z C/C++:    31 |   [[deprecated]] explicit RawPropsParser(bool /* ignored */) : RawPropsParser() {}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1401743Z C/C++:       |     ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:07.1429657Z C/C++: 1 warning generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8309807Z C/C++: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-vision-camera/nitrogen/generated/shared/c++/views/HybridPreviewViewComponent.cpp:115:35: warning: 'RawPropsParser' is deprecated [-Wdeprecated-declarations]
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8312825Z C/C++:   115 |                                   react::RawPropsParser(/* enableJsiParser */ true)) {}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8389810Z C/C++:       |                                   ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8409999Z C/C++: /home/runner/.gradle/caches/8.13/transforms/48854317aa4af219cf0511a9433eb57c/transformed/react-android-0.85.3-release/prefab/modules/reactnative/include/react/renderer/core/RawPropsParser.h:31:5: note: 'RawPropsParser' has been explicitly marked deprecated here
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8466359Z C/C++:    31 |   [[deprecated]] explicit RawPropsParser(bool /* ignored */) : RawPropsParser() {}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8509254Z C/C++:       |     ^
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:11.8539639Z C/C++: 1 warning generated.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:56.5262112Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:56.5262962Z > Task :react-native-vision-camera:externalNativeBuildRelease
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:56.5263562Z > Task :react-native-vision-camera:generateJsonModelRelease
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:37:56.5264163Z > Task :react-native-vision-camera:prefabReleaseConfigurePackage
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7272221Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7306442Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7307332Z > Task :app:configureCMakeRelWithDebInfo[arm64-v8a] FAILED
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7325714Z FAILURE: Build failed with an exception.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7327476Z C/C++: CMake Error at /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/generated/autolinking/src/main/jni/Android-autolinking.cmake:10 (add_subdirectory):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7359578Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7359929Z C/C++:   add_subdirectory given source
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7389497Z * What went wrong:
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7390905Z C/C++:   "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-nitro-modules/android/build/generated/source/codegen/jni/"
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7407455Z C/C++:   which is not an existing directory.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7408211Z C/C++: Call Stack (most recent call first):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7410573Z C/C++:   /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:94 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7412171Z Execution failed for task ':app:configureCMakeRelWithDebInfo[arm64-v8a]'.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7412872Z C/C++:   CMakeLists.txt:15 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7414623Z > [CXX1429] error when building with cmake using /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/src/main/cpp/CMakeLists.txt: -- The C compiler identification is Clang 18.0.2
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7417107Z C/C++: CMake Error at /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:97 (target_link_libraries):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7418643Z   -- The CXX compiler identification is Clang 18.0.2
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7419640Z C/C++:   Cannot specify link libraries for target "react_codegen_NitroModulesSpec"
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7420479Z   -- Detecting C compiler ABI info
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7421048Z C/C++:   which is not built by this project.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7421718Z   -- Detecting C compiler ABI info - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7422302Z C/C++: Call Stack (most recent call first):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7423824Z   -- Check for working C compiler: /usr/local/lib/android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7424811Z   -- Detecting C compile features
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7425296Z   -- Detecting C compile features - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7425821Z   -- Detecting CXX compiler ABI info
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7426324Z   -- Detecting CXX compiler ABI info - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7427427Z   -- Check for working CXX compiler: /usr/local/lib/android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7428446Z   -- Detecting CXX compile features
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7428945Z   -- Detecting CXX compile features - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7441370Z   -- Found OpenCV: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/src/main/cpp/opencv (found version "4.9.0") found components: core imgproc objdetect imgcodecs 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7443120Z   -- Configuring incomplete, errors occurred!
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7444446Z   See also "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a/CMakeFiles/CMakeOutput.log".
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7446389Z   See also "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a/CMakeFiles/CMakeError.log".
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7447496Z   
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7447955Z   C++ build system [configure] failed while executing:
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7448701Z       /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7449845Z         -H/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/src/main/cpp \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7450689Z         -DCMAKE_SYSTEM_NAME=Android \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7451224Z         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7451744Z         -DCMAKE_SYSTEM_VERSION=24 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7452240Z         -DANDROID_PLATFORM=android-24 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7452732Z         -DANDROID_ABI=arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7453216Z         -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7453863Z         -DANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.1.12297006 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7454651Z         -DCMAKE_ANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.1.12297006 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7455750Z         -DCMAKE_TOOLCHAIN_FILE=/usr/local/lib/android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7456853Z         -DCMAKE_MAKE_PROGRAM=/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7458469Z         -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/intermediates/cxx/RelWithDebInfo/6u4f5j43/obj/arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7461080Z         -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/intermediates/cxx/RelWithDebInfo/6u4f5j43/obj/arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7462407Z         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7463721Z         -DCMAKE_FIND_ROOT_PATH=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/prefab/arm64-v8a/prefab \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7465407Z         -B/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7466327Z         -GNinja \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7466787Z C/C++:   CMakeLists.txt:15 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7467786Z         -DPROJECT_BUILD_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7469563Z         -DPROJECT_ROOT_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7470988Z         -DREACT_ANDROID_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7472017Z         -DANDROID_STL=c++_shared \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7472534Z         -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7473340Z     from /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7475036Z   CMake Error at /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/generated/autolinking/src/main/jni/Android-autolinking.cmake:10 (add_subdirectory):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7476383Z     add_subdirectory given source
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7477602Z     "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-nitro-modules/android/build/generated/source/codegen/jni/"
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7478786Z     which is not an existing directory.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7479456Z   Call Stack (most recent call first):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7480598Z     /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:94 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7482114Z     CMakeLists.txt:15 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7482515Z   
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7482802Z   
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7484161Z   CMake Error at /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:97 (target_link_libraries):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7485743Z     Cannot specify link libraries for target "react_codegen_NitroModulesSpec"
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7486454Z     which is not built by this project.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7486964Z   Call Stack (most recent call first):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7488058Z     CMakeLists.txt:15 (include) : com.android.ide.common.process.ProcessException: -- The C compiler identification is Clang 18.0.2
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7491924Z   -- The CXX compiler identification is Clang 18.0.2
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7492582Z   -- Detecting C compiler ABI info
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7493091Z   -- Detecting C compiler ABI info - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7494185Z   -- Check for working C compiler: /usr/local/lib/android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/linux-x86_64/bin/clang - skipped
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7495235Z   -- Detecting C compile features
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7495743Z   -- Detecting C compile features - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7496274Z   -- Detecting CXX compiler ABI info
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7496787Z   -- Detecting CXX compiler ABI info - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7497893Z   -- Check for working CXX compiler: /usr/local/lib/android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ - skipped
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7498919Z   -- Detecting CXX compile features
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7499728Z   -- Detecting CXX compile features - done
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7501033Z   -- Found OpenCV: /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/src/main/cpp/opencv (found version "4.9.0") found components: core imgproc objdetect imgcodecs 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7502476Z   -- Configuring incomplete, errors occurred!
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7503569Z   See also "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a/CMakeFiles/CMakeOutput.log".
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7505212Z   See also "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a/CMakeFiles/CMakeError.log".
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7506175Z   
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7506582Z   C++ build system [configure] failed while executing:
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7507134Z       /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7507906Z         -H/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/src/main/cpp \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7508610Z         -DCMAKE_SYSTEM_NAME=Android \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7509612Z         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7510093Z         -DCMAKE_SYSTEM_VERSION=24 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7510583Z         -DANDROID_PLATFORM=android-24 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7511086Z         -DANDROID_ABI=arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7511535Z         -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7512139Z         -DANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.1.12297006 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7512803Z         -DCMAKE_ANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.1.12297006 \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7513765Z         -DCMAKE_TOOLCHAIN_FILE=/usr/local/lib/android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7514734Z         -DCMAKE_MAKE_PROGRAM=/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7516230Z         -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/intermediates/cxx/RelWithDebInfo/6u4f5j43/obj/arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7518252Z         -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/intermediates/cxx/RelWithDebInfo/6u4f5j43/obj/arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7520105Z         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7521376Z         -DCMAKE_FIND_ROOT_PATH=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/prefab/arm64-v8a/prefab \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7522987Z         -B/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7523826Z         -GNinja \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7524610Z         -DPROJECT_BUILD_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7525771Z         -DPROJECT_ROOT_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7527107Z         -DREACT_ANDROID_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7528084Z         -DANDROID_STL=c++_shared \
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7528624Z         -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7530623Z     from /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7532350Z   CMake Error at /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/generated/autolinking/src/main/jni/Android-autolinking.cmake:10 (add_subdirectory):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7533824Z     add_subdirectory given source
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7534903Z     "/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native-nitro-modules/android/build/generated/source/codegen/jni/"
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7536040Z     which is not an existing directory.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7536549Z   Call Stack (most recent call first):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7537711Z     /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:94 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7538823Z     CMakeLists.txt:15 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7539796Z   
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7540080Z   
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7541696Z   CMake Error at /home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake:97 (target_link_libraries):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7543224Z     Cannot specify link libraries for target "react_codegen_NitroModulesSpec"
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7543915Z     which is not built by this project.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7544412Z   Call Stack (most recent call first):
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7544892Z     CMakeLists.txt:15 (include)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7545769Z   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:288)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7547239Z   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:108)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7548537Z   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:106)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7550108Z   	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7551385Z   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:106)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7552714Z   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:85)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7554201Z   	at com.android.build.gradle.tasks.CmakeQueryMetadataGenerator.executeProcess(CmakeFileApiMetadataGenerator.kt:59)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7555810Z   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:247)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7557332Z   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:247)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7558717Z   	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7560390Z   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configureOneAbi(ExternalNativeJsonGenerator.kt:247)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7562252Z   	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configure(ExternalNativeJsonGenerator.kt:113)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7563727Z   	at com.android.build.gradle.tasks.ExternalNativeBuildJsonTask.doTaskAction(ExternalNativeBuildJsonTask.kt:89)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7565232Z   	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:59)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7566493Z   	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7567665Z   	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:81)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7568863Z   	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7570319Z   	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7571746Z   	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7572837Z   	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7573613Z   	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7574706Z   	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7576088Z   	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7577453Z   	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7578664Z   	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:244)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7580396Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7582014Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7583834Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7585318Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7586938Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7588359Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7590065Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7591362Z   	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7592599Z   	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7594046Z   	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7595399Z   	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7596579Z   	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7597692Z   	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7598724Z   	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7600067Z   	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7601544Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7603455Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7605438Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7606900Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7608310Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7609951Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7611578Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7612783Z   	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7613779Z   	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7614902Z   	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7616215Z   	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7617348Z   	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7618627Z   	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7620371Z   	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7621902Z   	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7623274Z   	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7624659Z   	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7626358Z   	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7627933Z   	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7629991Z   	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7631457Z   	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7632908Z   	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7634105Z   	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7635262Z   	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7636168Z   	at org.gradle.internal.Either$Right.fold(Either.java:175)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7637012Z   	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7638081Z   	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7639684Z   	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7641249Z   	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7642762Z   	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7643990Z   	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7645133Z   	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7646026Z   	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7647181Z   	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7648309Z   	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7649953Z   	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7651576Z   	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7653365Z   	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7655106Z   	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7656667Z   	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7658136Z   	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7659585Z   	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7660650Z   	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7661638Z   	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7662571Z   	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7664044Z   	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7665852Z   	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7667990Z   	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7669795Z   	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:56)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7671219Z   	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7672798Z   	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7674487Z   	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7676047Z   	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7677488Z   	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7678793Z   	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7680458Z   	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7681830Z   	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7683233Z   	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7684661Z   	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7686514Z   	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7688131Z   	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7690386Z   	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7692178Z   	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7693510Z   	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7695392Z   	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7696924Z   	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7698123Z   	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7699315Z   	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7700266Z   	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7701685Z   	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7703589Z   	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7705498Z   	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7707248Z   	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:40)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7709271Z   	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7710993Z   	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7712650Z   	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7714472Z   	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7715874Z   	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7717314Z   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7718729Z   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7720653Z   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7722712Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7724695Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7726259Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7727606Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7729223Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7730779Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7732275Z   	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7733709Z   	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7734975Z   	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7736375Z   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7738587Z   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7741108Z   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7742795Z   	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7744425Z   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7746363Z   	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7747991Z   	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7749675Z   	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7751012Z   	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7752198Z   	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7753207Z   	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7754207Z   	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7754953Z   	at java.base/java.lang.Thread.run(Thread.java:840)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7764769Z   Caused by: com.android.ide.common.process.ProcessException: Error while executing process /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake with arguments {-H/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/src/main/cpp -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/usr/local/lib/android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/usr/local/lib/android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/intermediates/cxx/RelWithDebInfo/6u4f5j43/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build/intermediates/cxx/RelWithDebInfo/6u4f5j43/obj/arm64-v8a -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_FIND_ROOT_PATH=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/prefab/arm64-v8a/prefab -B/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/.cxx/RelWithDebInfo/6u4f5j43/arm64-v8a -GNinja -DPROJECT_BUILD_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/app/build -DPROJECT_ROOT_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android -DREACT_ANDROID_DIR=/home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/node_modules/react-native/ReactAndroid -DANDROID_STL=c++_shared -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON}
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7776709Z   	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7778273Z   	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7779819Z   	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:277)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7780630Z   	... 142 more
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7781822Z   Caused by: org.gradle.process.internal.ExecException: Process 'command '/usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake'' finished with non-zero exit value 1
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7783797Z   	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:442)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7785466Z   	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7786459Z   	... 143 more
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7786655Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7786666Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7786795Z * Try:
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7787299Z > Run with --stacktrace option to get the stack trace.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7788032Z > Run with --info or --debug option to get more log output.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7788660Z > Run with --scan to get full insights.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7789387Z > Get more help at https://help.gradle.org.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7789722Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7789903Z BUILD FAILED in 5m 19s
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7790171Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7791384Z [Incubating] Problems report is available at: file:///home/runner/work/nhai-vedic-engine/nhai-vedic-engine/NhaiApp/android/build/reports/problems/problems-report.html
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7792392Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7792859Z Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7793366Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7794165Z You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7794886Z 
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7795794Z For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:01.7796756Z 46 actionable tasks: 46 executed
+build_android	Compile C++ Kernels & Package Production Release APK	2026-06-01T16:38:02.2325053Z ##[error]Process completed with exit code 1.
+build_android	Post Set up Java 17 (Stable NDK Standard)	﻿2026-06-01T16:38:02.2418594Z Post job cleanup.
+build_android	Post Checkout Code Base	﻿2026-06-01T16:38:02.4354111Z Post job cleanup.
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5400035Z [command]/usr/bin/git version
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5434886Z git version 2.54.0
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5480537Z Temporarily overriding HOME='/home/runner/work/_temp/6c9afa8b-9dcb-420b-a96c-e4039693bb68' before making global git config changes
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5481865Z Adding repository directory to the temporary git global config as a safe directory
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5487125Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/nhai-vedic-engine/nhai-vedic-engine
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5529707Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5565891Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5817052Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5843819Z http.https://github.com/.extraheader
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5856499Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.5891244Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.6130276Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build_android	Post Checkout Code Base	2026-06-01T16:38:02.6165081Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build_android	Complete job	﻿2026-06-01T16:38:02.6531255Z Cleaning up orphan processes
+build_android	Complete job	2026-06-01T16:38:02.6831502Z Terminate orphan process: pid (2606) (java)
+build_android	Complete job	2026-06-01T16:38:02.6845301Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-java@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 16th, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
