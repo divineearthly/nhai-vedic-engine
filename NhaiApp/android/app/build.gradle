@@ -120,6 +120,9 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+}
+
+android {
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
